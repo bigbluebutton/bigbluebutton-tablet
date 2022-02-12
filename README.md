@@ -42,6 +42,8 @@ npx react-native run-ios --simulator="iPhone 13"
 
 #### Real device
 
+##### Debug mode
+
 To run this application in a real ios device, you need to run:
 
 ```sh
@@ -50,6 +52,14 @@ npm install -g ios-deploy
 
 #Run
 npx react-native run-ios --device "iPhone de TDJ"
+```
+
+###### Release mode
+
+To run a release version of this application in a real ios device, you need to run:
+
+```sh
+npx react-native run-ios --configuration Release --device "iPhone de TDJ"
 ```
 
 #### Open project in XCODE
