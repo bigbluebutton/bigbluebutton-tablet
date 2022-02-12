@@ -37,3 +37,11 @@ npx react-native start
 npx react-native run-ios
 
 ```
+
+#### Open project in XCODE
+
+To change native code, you can run this command:
+
+```sh
+open ios/BigBlueButton.xcodeproj
+```
