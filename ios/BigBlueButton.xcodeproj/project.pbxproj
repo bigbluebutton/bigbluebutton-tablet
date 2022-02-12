@@ -20,6 +20,7 @@
 		F1F9558327B7612C000608EB /* BroadcastSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F9558227B7612C000608EB /* BroadcastSetupViewController.swift */; };
 		F1F9558727B7612C000608EB /* BroadcastUploadSetupUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F1F9557D27B7612C000608EB /* BroadcastUploadSetupUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F1F9558A27B7612C000608EB /* BroadcastUpload.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F1F9557227B7612B000608EB /* BroadcastUpload.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F1F9559A27B77D4C000608EB /* SystemBroadcastPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F9559927B77D4C000608EB /* SystemBroadcastPickerManager.m */; };
 		F29A21BB38B66F71560C2BDC /* libPods-BigBlueButton-BigBlueButtonTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9899CCCE408726F08764D3 /* libPods-BigBlueButton-BigBlueButtonTests.a */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		F1F9557F27B7612C000608EB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F1F9558227B7612C000608EB /* BroadcastSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSetupViewController.swift; sourceTree = "<group>"; };
 		F1F9558427B7612C000608EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1F9559927B77D4C000608EB /* SystemBroadcastPickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemBroadcastPickerManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		13B07FAE1A68108700A75B9A /* BigBlueButton */ = {
 			isa = PBXGroup;
 			children = (
+				F1F9559527B7726F000608EB /* ReactModules */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -231,6 +234,14 @@
 				F1F9558427B7612C000608EB /* Info.plist */,
 			);
 			path = BroadcastUploadSetupUI;
+			sourceTree = "<group>";
+		};
+		F1F9559527B7726F000608EB /* ReactModules */ = {
+			isa = PBXGroup;
+			children = (
+				F1F9559927B77D4C000608EB /* SystemBroadcastPickerManager.m */,
+			);
+			path = ReactModules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,7 +339,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1320;
 					};
 					F1F9557127B7612B000608EB = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -520,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				F1F9559A27B77D4C000608EB /* SystemBroadcastPickerManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -633,6 +645,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.bigbluebutton.mobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BigBlueButton;
+				SWIFT_OBJC_BRIDGING_HEADER = "BigBlueButton-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -659,6 +672,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.bigbluebutton.mobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BigBlueButton;
+				SWIFT_OBJC_BRIDGING_HEADER = "BigBlueButton-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

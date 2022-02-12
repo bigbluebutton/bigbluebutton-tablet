@@ -8,6 +8,8 @@
 
 import React from 'react';
 import type {Node} from 'react';
+import BroadcastPicker from './react/BroadcastPicker';
+
 import {
   SafeAreaView,
   ScrollView,
@@ -60,24 +62,27 @@ const App: () => Node = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Welcome">
-            Welcome to first version of <Text style={styles.highlight}>BigBlueButton Mobile</Text>
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <>
+      <BroadcastPicker/>
+      <SafeAreaView style={backgroundStyle}>
+        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={backgroundStyle}>
+          <View
+            style={{
+              backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            }}>
+            <Section title="Welcome">
+              Welcome to first version of <Text style={styles.highlight}>BigBlueButton Mobile</Text>
+            </Section>
+            <Section title="Debug">
+              <DebugInstructions />
+            </Section>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </>
   );
 };
 
