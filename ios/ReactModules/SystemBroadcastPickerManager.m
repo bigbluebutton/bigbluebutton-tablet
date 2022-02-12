@@ -20,6 +20,8 @@ RCT_EXPORT_MODULE(BBBN_SystemBroadcastPicker)
   UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
 
   RPSystemBroadcastPickerView *pickerView = [[RPSystemBroadcastPickerView alloc]initWithFrame:CGRectMake(0, 0, 16, 16)];
+  
+  pickerView.preferredExtension = @"org.bigbluebutton.mobile.BigBlueButton.BroadcastUpload";
 
   return pickerView;
 }
