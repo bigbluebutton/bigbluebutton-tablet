@@ -21,6 +21,8 @@ npx react-native run-android
 
 ### MAC
 
+#### Simulator
+
 To build this application in mac, you need to run:
 
 ```sh
@@ -36,6 +38,18 @@ npx react-native start
 # In other terminal, run the app:
 npx react-native run-ios --simulator="iPhone 13"
 
+```
+
+#### Real device
+
+To run this application in a real ios device, you need to run:
+
+```sh
+#Install package
+npm install -g ios-deploy
+
+#Run
+npx react-native run-ios --device "iPhone de TDJ"
 ```
 
 #### Open project in XCODE
