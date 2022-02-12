@@ -34,7 +34,7 @@ npx pod-install
 npx react-native start
 
 # In other terminal, run the app:
-npx react-native run-ios
+npx react-native run-ios --simulator="iPhone 13"
 
 ```
 
