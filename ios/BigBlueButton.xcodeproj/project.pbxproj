@@ -91,7 +91,6 @@
 				C2A362FCDC6CFF0B2C3404AD /* Pods-BigBlueButton-BigBlueButtonTests.debug.xcconfig */,
 				1319DDB855A2C8F710D47169 /* Pods-BigBlueButton-BigBlueButtonTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -460,7 +459,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bigbluebutton.mobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BigBlueButton;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -485,7 +484,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bigbluebutton.mobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BigBlueButton;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
