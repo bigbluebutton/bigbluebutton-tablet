@@ -67,5 +67,12 @@ npx react-native run-ios --configuration Release --device "iPhone de TDJ"
 To change native code, you can run this command:
 
 ```sh
-open ios/BigBlueButton.xcodeproj
+open ios/BigBlueButton.xcworkspace
 ```
+
+## References
+
+### IOS
+
+- [Screen broadcast - replay kit 2](https://developer.apple.com/videos/play/wwdc2018/601/)
+- [Logs](https://developer.apple.com/videos/play/wwdc2020/10168/)
