@@ -2,6 +2,8 @@
 
 BigBlueButton mobile application.
 
+**Important:** This is an work in progress and is not ready to be used by the community. Please stay tunned.
+
 ## Development
 
 ### Linux
