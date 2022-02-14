@@ -18,6 +18,8 @@ const styles = StyleSheet.create({
 const Header = ({children, title}): Node => {
   return Platform.select({
     ios: <SystemBroadcastPicker style={styles.broacastPicker} />,
+    android: null
+
   });
 };
 
