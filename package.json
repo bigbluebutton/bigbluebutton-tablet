@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.16.1",
+    "bigbluebutton-mobile-sdk": "^0.1.0",
     "react": "17.0.2",
     "react-native": "0.67.2",
     "styled-components": "^5.3.3"
