@@ -50,18 +50,18 @@ export const Entry = () => {
                     onChange={(e)=>setName(e)} 
                     value={name}
                     name="Name" 
-                    placeholder="Gustavo.."
+                    placeholder="Deme Server"
                 />
 
                 <InputForText 
                     onChange={(e)=>setUrl(e)} 
                     value={url}
                     name="Web Addres (URL)" 
-                    placeholder="www.bigbluebutton.com"
+                    placeholder="https://demo.bigbluebutton.org"
                 /> 
 
                 <WrapperButtons>
-                    <ButtonApp onPress={addRoom} colorapp={colors.danger}>Cancel</ButtonApp>     
+                    <ButtonApp colorapp={colors.danger}>Cancel</ButtonApp>     
                     <ButtonApp onPress={addRoom}>Add</ButtonApp>     
                 </WrapperButtons>
             </WrapperInput>
