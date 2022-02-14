@@ -3,7 +3,7 @@ import React from 'react';
 import { NameInput, InputForTextStyle, WrapperInputForText } from './styles';
 
 
-export const InputForText = ({name, placeholder, onChange, value})=>{
+export const TextInput = ({name, placeholder, onChange, value})=>{
     return (
         <>
             <WrapperInputForText>

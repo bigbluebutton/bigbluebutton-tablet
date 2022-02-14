@@ -1,7 +1,7 @@
 import React from 'react';
-import {  Text, TextInput, View } from 'react-native';
+import { View } from 'react-native';
 import { ButtonApp } from '../../components/button/component';
-import { InputForText } from '../../components/Input/text/component';
+import { TextInput as ReactTextInput } from '../../components/Input/text/component';
 import { WrapperButtons, WrapperInput } from './styles';
 import { colors } from '../../styles/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -14,24 +14,20 @@ export const Entry = () => {
     const [url, setUrl] = React.useState(null);
     const [rooms, setRooms] = React.useState(null);
 
-    async function addRoom(){
-        console.log(AsyncStorage)
-        const room = {name,url}
-        const jsonRoom = JSON.stringify(room)
+    async function addPortal(){
+        const portal = {name,url}
+        const jsonPortal = JSON.stringify(portal)
         try { 
-            //await AsyncStorage.setItem('rooms', jsonRoom)
-            //await AsyncStorage.setItem('rooms', jsonRoom)
-            await AsyncStorage.setItem('rooms', jsonRoom)
+            await AsyncStorage.setItem('portal', jsonPortal)
             
         } catch (e) {
             console.log(e)
         }
     }
 
-    async function listRooms(){
+    async function listPortals(){
         try {
-            const jsonValue = await AsyncStorage.getItem('rooms')
-            console.log(jsonValue)
+            const jsonValue = await AsyncStorage.getItem('portal')
             return jsonValue != null ? setRooms(JSON.parse(jsonValue)) : null;
           } catch(e) {
             console.log(e)
@@ -39,21 +35,21 @@ export const Entry = () => {
     }
 
     React.useEffect(()=>{
-        listRooms();
+        listPortals();
     }, [])
 
     return (
         <View>
             <WrapperInput>
                
-                <InputForText 
+                <ReactTextInput 
                     onChange={(e)=>setName(e)} 
                     value={name}
                     name="Name" 
                     placeholder="Deme Server"
                 />
 
-                <InputForText 
+                <ReactTextInput 
                     onChange={(e)=>setUrl(e)} 
                     value={url}
                     name="Web Addres (URL)" 
@@ -62,7 +58,7 @@ export const Entry = () => {
 
                 <WrapperButtons>
                     <ButtonApp colorapp={colors.danger}>Cancel</ButtonApp>     
-                    <ButtonApp onPress={addRoom}>Add</ButtonApp>     
+                    <ButtonApp onPress={addPortal}>Add</ButtonApp>     
                 </WrapperButtons>
             </WrapperInput>
             
