@@ -1,6 +1,8 @@
 # OSX
 #
 .DS_Store
+.AppleDouble
+.LSOverride
 
 # Xcode
 #
@@ -58,3 +60,8 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
+# Thumbnails
+._*
+
+
