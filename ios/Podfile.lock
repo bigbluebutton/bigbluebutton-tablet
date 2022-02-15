@@ -1,5 +1,5 @@
 PODS:
-  - bigbluebutton-mobile-sdk (0.1.0):
+  - bigbluebutton-mobile-sdk (0.1.3):
     - React-Core
     - WebRTC-lib
   - boost (1.76.0)
@@ -212,6 +212,8 @@ PODS:
   - React-jsinspector (0.67.2)
   - React-logger (0.67.2):
     - glog
+  - react-native-webview (11.17.2):
+    - React-Core
   - React-perflogger (0.67.2)
   - React-RCTActionSheet (0.67.2):
     - React-Core/RCTActionSheetHeaders (= 0.67.2)
@@ -301,6 +303,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -357,6 +360,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-webview:
+    :path: "../node_modules/react-native-webview"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -385,7 +390,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  bigbluebutton-mobile-sdk: 500aa129e690ed23fe94d6ca20d1dfec09469de4
+  bigbluebutton-mobile-sdk: cd5cd0a43fd820be48187e81c6180352f0f8dcf5
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
   FBLazyVector: 244195e30d63d7f564c55da4410b9a24e8fbceaa
@@ -404,6 +409,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 52beb652bbc61201bd70cbe4f0b8edb607e8da4f
   React-jsinspector: 595f76eba2176ebd8817a1fffd47b84fbdab9383
   React-logger: 23de8ea0f44fa00ee77e96060273225607fd4d78
+  react-native-webview: 77ee909f73e1fcab76380f7dcc3344771fe61bd8
   React-perflogger: 3c9bb7372493e49036f07a82c44c8cf65cbe88db
   React-RCTActionSheet: 052606483045a408693aa7e864410b4a052f541a
   React-RCTAnimation: 08d4cac13222bb1348c687a0158dfd3b577cdb63
@@ -419,6 +425,6 @@ SPEC CHECKSUMS:
   WebRTC-lib: f76423cdaedf25145b59a1f691e0f371e9c262a5
   Yoga: 9b6696970c3289e8dea34b3eda93f23e61fb8121
 
-PODFILE CHECKSUM: 8d01a6f2b0c512d020b5164f1ef5603fbdd8aeb4
+PODFILE CHECKSUM: ec7ddc14d2f705e1e7d352f4c28bdee2a43510c0
 
 COCOAPODS: 1.11.2
