@@ -16,6 +16,8 @@ target 'BigBlueButton' do
     :hermes_enabled => false
   )
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'BigBlueButtonTests' do
     inherit! :complete
     # Pods for testing
