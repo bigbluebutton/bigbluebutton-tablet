@@ -1,43 +1,22 @@
 import React from 'react';
 import { View } from 'react-native';
-import { ButtonApp } from '../../components/button/component';
-import { TextInput as ReactTextInput } from '../../components/Input/text/component';
+import { ButtonApp } from '../../../components/button/component';
+import { TextInput as ReactTextInput } from '../../../components/Input/text/component';
 import { WrapperButtons, WrapperInput } from './styles';
-import { colors } from '../../styles/colors';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { colors } from '../../../styles/colors';
+import { usePortal } from '../../../context/portals/hook';
 
 
-
-
-export const Entry = () => {
+export const EntryStore = () => {
     const [name, setName] = React.useState(null);
     const [url, setUrl] = React.useState(null);
-    const [rooms, setRooms] = React.useState(null);
+    const { getPortals, setPortalsHook } = usePortal()
 
     async function addPortal(){
-        const portal = {name,url}
-        const jsonPortal = JSON.stringify(portal)
-        try { 
-            await AsyncStorage.setItem('portal', jsonPortal)
-            
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
-    async function listPortals(){
-        try {
-            const jsonValue = await AsyncStorage.getItem('portal')
-            return jsonValue != null ? setRooms(JSON.parse(jsonValue)) : null;
-          } catch(e) {
-            console.log(e)
-          }
-    }
-
-    React.useEffect(()=>{
-        listPortals();
-    }, [])
-
+        const portal = {name, url}
+        await setPortalsHook(portal)
+        console.log(await getPortals())
+    }   
     return (
         <View>
             <WrapperInput>
