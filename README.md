@@ -2,10 +2,6 @@
 
 BigBlueButton mobile application.
 
-This repository contains the UI and the packaging information (targets, signing, etc).
-
-It also contains the sample implementation that allows users to add BigBlueButton portals.
-
 **Important:** This is an work in progress and is not ready to be used by the community. Please stay tunned.
 
 ## Development
