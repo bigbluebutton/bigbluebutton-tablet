@@ -28,11 +28,8 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>localhost</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
+                        <key>NSAllowsArbitraryLoads</key>
+                        <false/>
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
