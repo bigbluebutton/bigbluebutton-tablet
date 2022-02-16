@@ -1,4 +1,4 @@
-# bigbluebutton-mobile
+# BigBlueButton-mobile
 
 BigBlueButton mobile application.
 
