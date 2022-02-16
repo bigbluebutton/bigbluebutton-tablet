@@ -8,7 +8,7 @@ export default function App() {
     <View style={styles.container}>
       <BigbluebuttonMobile
         broadcastAppBundleId="org.bigbluebutton.mobile-sdk.example.BigBlueButtonMobileSdkBroadcastExample"
-        url="https://demo.bigbluebutton.org/gl"
+        url="https://bigbluebutton.org"
         style={styles.bbb}
       />
     </View>
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   bbb: {
-    marginTop: Platform.select({ios: 48, android: 0}),
+    marginTop: Platform.select({ios: 20, android: 0}),
     flex: 1,
   },
 });
