@@ -102,6 +102,7 @@ export const ListPortals = ({ navigation }: IListPortalsDTO)=>{
                     closeOnRowPress={true}    
                     closeOnRowOpen={true}                                 
                     onRowOpen={(rowKey, rowMap) => {
+                        //This timeout is recommended https://github.com/jemise111/react-native-swipe-list-view/blob/master/docs/migrating-to-flatlist.md
                         setTimeout(() => {
                             if(rowMap[rowKey] != undefined){
                                 rowMap[rowKey].closeRow()

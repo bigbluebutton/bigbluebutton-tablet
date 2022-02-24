@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
       marginTop: Platform.select({ios: 20, android: 0}),
       flex: 1,
     },
-  });
+});

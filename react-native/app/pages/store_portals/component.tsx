@@ -18,12 +18,9 @@ export const StorePortals = ({navigation, modalizeRef}:IStore)=>{
         portalsStorage = await AsyncStorage.getItem('portal')            
         portalsStorage = portalsStorage ? JSON.parse(portalsStorage) : null            
         portalsStorage.push({name, url})            
-        await AsyncStorage.setItem('portal', JSON.stringify(portalsStorage))            
+        AsyncStorage.setItem('portal', JSON.stringify(portalsStorage))            
         setPortals(portalsStorage)
-        setTimeout(()=>{
-            modalizeRef?.current?.close();
-        }, 500)
-
+        modalizeRef?.current?.close();
         navigation.navigate(name)
     }
 
