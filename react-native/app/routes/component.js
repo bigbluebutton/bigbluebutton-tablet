@@ -1,18 +1,19 @@
 import * as React from 'react';
-import { Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { ListPortals } from '../pages/list_portals/component';
 import { usePortal } from '../contexts/portals/hook';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import i18next from 'i18next';
 
 import {
   createDrawerNavigator,
 } from '@react-navigation/drawer';
 import SdkContainer from '../../bootstrap/sdk/container';
+import { initTranslation } from '../translations/index';
 
 const Drawer = createDrawerNavigator();
 export const Routes = ()=>{
-
+  initTranslation()
   
   const {portals, setPortals} = usePortal()
   async function getPortals(){
@@ -22,8 +23,6 @@ export const Routes = ()=>{
               let portalsStorage = await AsyncStorage.getItem('portal')
               portalsStorage = JSON.parse(portalsStorage)
               setPortals(portalsStorage)
-          } else {
-              Alert.alert('Portals', 'Dont have Portals in Storage')
           }
       } catch(e){
           console.log('error', e)
@@ -45,7 +44,7 @@ export const Routes = ()=>{
           }}
         >
           
-          <Drawer.Screen name="Portals" component={ListPortals} />         
+          <Drawer.Screen name={i18next.t("mobileApp.portals.drawerNavigation.button.label")} component={ListPortals} />         
           { 
             portals || portals != 0 ?
             portals.map((item)=>{
@@ -56,15 +55,4 @@ export const Routes = ()=>{
         </Drawer.Navigator>
       </NavigationContainer>
   );
-}
-
-
-export const RoutesContainer = ()=>{
-
-  return(
-
-    <>
-        <Routes/>
-    </>
-  )
 }

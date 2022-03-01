@@ -97,8 +97,6 @@ export const ButtonDelete = styled.TouchableOpacity`
     margin: 3% auto;
     width: 100%;
     height: 80px;
-    //left: 20px;
-
     
     justify-content: center;
     align-items: center;

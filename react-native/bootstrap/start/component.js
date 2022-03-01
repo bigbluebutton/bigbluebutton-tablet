@@ -1,15 +1,13 @@
 import React from 'react'
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { Routes } from '../../app/routes/component';
+import { PortalContextContainer } from '../../app/contexts/portals/container';
 
 
-//This archive is used to envolve app in contexts, libs, etc..
+//This file is used to envolve app in contexts, libs, etc..
 export const Bootstrap = ()=>{
-    return (
-        <>            
-            <GestureHandlerRootView>                    
-                    <Routes/>                    
-            </GestureHandlerRootView>           
-        </>
+    return (  
+        <PortalContextContainer>
+            <Routes/>
+        </PortalContextContainer>                    
     )
 }
