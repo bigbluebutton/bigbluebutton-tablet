@@ -74,7 +74,7 @@ export const StorePortals = ({navigation, modalizeRef}:IStore)=>{
                         <InputText value={name} onChangeText={(e:any)=>setName(e)} placeholder={i18next.t("mobileApp.portals.fields.name.placeholder")} label={i18next.t("mobileApp.portals.fields.name.label")}/>                       
                     </WrapperInput>
                     <WrapperInput>
-                        <InputText value={url} onChangeText={(e:any)=>setUrl(e)} placeholder={i18next.t("mobileApp.portals.fields.url.placeholder")} label={i18next.t("mobileApp.portals.fields.url.label")}/>                       
+                        <InputText autoCapitalize='none' value={url} onChangeText={(e:any)=>setUrl(e)} placeholder={i18next.t("mobileApp.portals.fields.url.placeholder")} label={i18next.t("mobileApp.portals.fields.url.label")}/>                       
                     </WrapperInput>
                     <WrapperInput>
                         <ButtonApp onPress={onPress}><Text>{i18next.t("mobileApp.portals.addPortalPopup.confirm.button.label")}</Text></ButtonApp>
