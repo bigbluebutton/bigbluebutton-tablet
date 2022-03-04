@@ -1,8 +1,8 @@
 PODS:
-  - bigbluebutton-mobile-sdk (0.1.7):
+  - bigbluebutton-mobile-sdk (0.1.8):
     - React-Core
     - WebRTC-lib
-  - bigbluebutton-mobile-sdk-common (0.1.7):
+  - bigbluebutton-mobile-sdk-common (0.1.8):
     - WebRTC-lib
   - boost (1.76.0)
   - DoubleConversion (1.1.6)
@@ -471,8 +471,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  bigbluebutton-mobile-sdk: 21fd7113a5bf0d791376af62fb480af997cea8ec
-  bigbluebutton-mobile-sdk-common: 77be58379eee95b767c160b9d09ffb7ce39983d0
+  bigbluebutton-mobile-sdk: d8a1abd3059fcacfdd1a1edd3fb1153076a1b0a3
+  bigbluebutton-mobile-sdk-common: ce78a6beb967b562b2fc7c6ea1570e6abf94a4ed
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
   FBLazyVector: 244195e30d63d7f564c55da4410b9a24e8fbceaa
@@ -491,8 +491,8 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 52beb652bbc61201bd70cbe4f0b8edb607e8da4f
   React-jsinspector: 595f76eba2176ebd8817a1fffd47b84fbdab9383
   React-logger: 23de8ea0f44fa00ee77e96060273225607fd4d78
-  react-native-safe-area-context: 114e9a74df2643012b9d6cc1460b94f3b6a90780
-  react-native-webview: 380c1a03ec94b7ed764dac8db1e7c9952d08c93a
+  react-native-safe-area-context: 1bda964fb473c30913cd44ebe1ebd2a2574107fa
+  react-native-webview: 77ee909f73e1fcab76380f7dcc3344771fe61bd8
   React-perflogger: 3c9bb7372493e49036f07a82c44c8cf65cbe88db
   React-RCTActionSheet: 052606483045a408693aa7e864410b4a052f541a
   React-RCTAnimation: 08d4cac13222bb1348c687a0158dfd3b577cdb63
@@ -505,9 +505,9 @@ SPEC CHECKSUMS:
   React-RCTVibration: 99c7f67fba7a5ade46e98e870c6ff2444484f995
   React-runtimeexecutor: 2450b43df7ffe8e805a0b3dcb2abd4282f1f1836
   ReactCommon: d98c6c96b567f9b3a15f9fd4cc302c1eda8e3cf2
-  ReactNativeLocalization: 076497d7ca70341c751cd3b3e7c86187332a182d
-  RNCAsyncStorage: b49b4e38a1548d03b74b30e558a1d18465b94be7
-  RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
+  ReactNativeLocalization: be60e3a0e6e8db88d9f8190719ffb75e1cdab22a
+  RNCAsyncStorage: c0754b486fec6e532d358bfd7337cb45c8d2c897
+  RNCMaskedView: f127cd9652acfa31b91dcff613e07ba18b774db6
   RNGestureHandler: 77d59828d40838c9fabb76a12d2d0a80c006906f
   RNLanguages: 962e562af0d34ab1958d89bcfdb64fafc37c513e
   RNReanimated: 32c91e28f5780937b8efc07ddde1bab8d373fe0b

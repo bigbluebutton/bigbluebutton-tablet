@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RCTBridgeDelegate {
     self.window?.rootViewController = rootViewController
     self.window?.makeKeyAndVisible()
     
-    BigBlueButtonSDK.start()
+    BigBlueButtonSDK.initialize(broadcastExtensionBundleId: Constants.broadcastExtensionBundleId, appGroupName: Constants.appGroupName)
 
     return true
   }
