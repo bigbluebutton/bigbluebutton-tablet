@@ -7,15 +7,16 @@ type IInputText = {
     label: string;
     onChangeText?: any,
     value?: any
+    autoCapitalize?: "none"
 }
 export const InputText = (props: IInputText)=>{
 
-    const {children, placeholder, label, onChangeText, value} = props
+    const {children, placeholder, label, onChangeText, value, autoCapitalize} = props
 
     return (
         <>
             <LabelInput>{props.label}</LabelInput>
-            <WrapperInputText value={props.value} onChangeText={props.onChangeText} placeholder={props.placeholder}></WrapperInputText>          
+            <WrapperInputText autoCapitalize={props.autoCapitalize} value={props.value} onChangeText={props.onChangeText} placeholder={props.placeholder}></WrapperInputText>          
         </>
     )
 }
