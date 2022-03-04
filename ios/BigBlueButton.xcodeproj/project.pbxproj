@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* BigBlueButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BigBlueButtonTests.m */; };
-		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		6172F2D35A4C3AA820D92908 /* libPods-BigBlueButton.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-BigBlueButton.a */; };
 		7EF68E3733C33B6898317E18 /* libPods-BigBlueButton-BigBlueButtonTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-BigBlueButton-BigBlueButtonTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		D9268FF3D2DA9D8304F931DB /* libPods-BigBlueButton Broadcast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E575479D3F0ED342457EBF /* libPods-BigBlueButton Broadcast.a */; };
+		F121360B27D1904500E25EBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F121360A27D1904500E25EBB /* AppDelegate.swift */; };
 		F1F618E927BCA28B0085BEDE /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F618E827BCA28B0085BEDE /* ReplayKit.framework */; };
 		F1F618EC27BCA28B0085BEDE /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F618EB27BCA28B0085BEDE /* SampleHandler.swift */; };
 		F1F618F027BCA28B0085BEDE /* BigBlueButton Broadcast.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F1F618E727BCA28B0085BEDE /* BigBlueButton Broadcast.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -56,11 +55,8 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* BigBlueButtonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BigBlueButtonTests.m; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* BigBlueButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigBlueButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BigBlueButton/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = BigBlueButton/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BigBlueButton/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BigBlueButton/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BigBlueButton/main.m; sourceTree = "<group>"; };
 		1D0AE47A65C8663E3B452821 /* Pods-BigBlueButton-BigBlueButtonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigBlueButton-BigBlueButtonTests.release.xcconfig"; path = "Target Support Files/Pods-BigBlueButton-BigBlueButtonTests/Pods-BigBlueButton-BigBlueButtonTests.release.xcconfig"; sourceTree = "<group>"; };
 		38E575479D3F0ED342457EBF /* libPods-BigBlueButton Broadcast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BigBlueButton Broadcast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6423831EA8574132BED9D8CC /* libPods-BigBlueButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BigBlueButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +68,8 @@
 		D00AAFFCFCFDA5787532823F /* Pods-BigBlueButton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigBlueButton.release.xcconfig"; path = "Target Support Files/Pods-BigBlueButton/Pods-BigBlueButton.release.xcconfig"; sourceTree = "<group>"; };
 		D029435F40D9827BF73DEFDA /* Pods-BigBlueButton Broadcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigBlueButton Broadcast.debug.xcconfig"; path = "Target Support Files/Pods-BigBlueButton Broadcast/Pods-BigBlueButton Broadcast.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F121360927D1904500E25EBB /* swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		F121360A27D1904500E25EBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1F618E727BCA28B0085BEDE /* BigBlueButton Broadcast.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BigBlueButton Broadcast.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F618E827BCA28B0085BEDE /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		F1F618EB27BCA28B0085BEDE /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
@@ -134,12 +132,11 @@
 		13B07FAE1A68108700A75B9A /* BigBlueButton */ = {
 			isa = PBXGroup;
 			children = (
-				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
-				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
-				13B07FB71A68108700A75B9A /* main.m */,
+				F121360A27D1904500E25EBB /* AppDelegate.swift */,
+				F121360927D1904500E25EBB /* swift-Bridging-Header.h */,
 			);
 			name = BigBlueButton;
 			sourceTree = "<group>";
@@ -292,7 +289,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1320;
 					};
 					F1F618E627BCA28B0085BEDE = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -528,8 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				F121360B27D1904500E25EBB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +557,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C97AB639B58BBB4B15BBE30 /* Pods-BigBlueButton-BigBlueButtonTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -588,6 +585,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D0AE47A65C8663E3B452821 /* Pods-BigBlueButton-BigBlueButtonTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = BigBlueButtonTests/Info.plist;
@@ -618,6 +616,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BigBlueButton/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -629,6 +628,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.bigbluebutton.mobile;
 				PRODUCT_NAME = BigBlueButton;
+				SWIFT_OBJC_BRIDGING_HEADER = "swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -644,6 +644,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = BigBlueButton/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -655,6 +656,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.bigbluebutton.mobile;
 				PRODUCT_NAME = BigBlueButton;
+				SWIFT_OBJC_BRIDGING_HEADER = "swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -801,7 +803,7 @@
 				INFOPLIST_FILE = "BigBlueButton Broadcast/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "BigBlueButton Broadcast";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -840,7 +842,7 @@
 				INFOPLIST_FILE = "BigBlueButton Broadcast/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "BigBlueButton Broadcast";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
