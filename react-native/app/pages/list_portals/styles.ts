@@ -4,12 +4,11 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SwipeListView } from 'react-native-swipe-list-view';
 
 
-export const WrapperListContainer = styled.View`
+export const WrapperListContainer = styled.SafeAreaView`
     background-color: ${colors.secundary};
     flex: 1 ;
     justify-content: center;
     align-items: center;
-    padding: 20px;
 `;
 
 export const WrapperList = styled.FlatList`
@@ -68,7 +67,7 @@ export const WrapperViewAdd = styled.View`
 export const ButtonOpen = styled.TouchableOpacity`
     padding: 10px;
     background-color: ${colors.primary};
-    width: 90%;
+    width: 300px;
     margin: 10px;
     border-radius: 10px;
     
