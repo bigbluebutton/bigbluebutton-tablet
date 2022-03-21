@@ -1,12 +1,17 @@
-import React from 'react'
-import { InputText } from '../../components/input/text/component';
-import { TextEmptyFileds, WrapperInput, WrapperStore, WrapperStoreContainer } from './styles';
-import { Text } from 'react-native';
-import { ButtonApp } from '../../components/button/component';
+import React from 'react';
+import {InputText} from '../../components/input/text/component';
+import {
+  TextEmptyFileds,
+  WrapperInput,
+  WrapperStore,
+  WrapperStoreContainer,
+} from './styles';
+import {Text} from 'react-native';
+import {ButtonApp} from '../../components/button/component';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { usePortal } from '../../contexts/portals/hook';
-import { IStore } from './types';
-import { initTranslation } from '../../translations/index';
+import {usePortal} from '../../contexts/portals/hook';
+import {IStore} from './types';
+import {initTranslation} from '../../translations/index';
 import i18next from 'i18next';
 
 export const StorePortals = ({navigation, modalizeRef}: IStore) => {
@@ -49,6 +54,24 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
       newPortal(name, url);
       return null;
     }
+  }
+
+  const textEmptyFields = () => (
+    <>
+      {emptyFields ? (
+        <TextEmptyFileds>
+          {i18next.t('mobileApp.portals.addPortalPopup.validation.emptyFilds')}
+        </TextEmptyFileds>
+      ) : null}
+      {nameAlreadyUsed ? (
+        <TextEmptyFileds>
+          {i18next.t(
+            'mobileApp.portals.addPortalPopup.validation.portalNameAlreadyExists',
+          )}
+        </TextEmptyFileds>
+      ) : null}
+    </>
+  );;
 
   const textEmptyFields = () => (
     <>

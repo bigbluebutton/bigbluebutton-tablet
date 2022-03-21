@@ -1,14 +1,15 @@
-import { DrawerScreenProps } from '@react-navigation/drawer';
+import {DrawerScreenProps} from '@react-navigation/drawer';
 export type IItem = {
-    url: string;
-    namePortal: string;
-}
+  url: string;
+  namePortal: string;
+  onPress?: any;
+};
 
 export type IListPortalsDTO = {
-    navigation: DrawerScreenProps
-}
+  navigation: DrawerScreenProps;
+};
 
-export type IItemDelete = { 
-    name: string;
-    url: string
-}
+export type IItemDelete = {
+  name: string;
+  url: string;
+};
