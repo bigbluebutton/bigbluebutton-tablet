@@ -15,8 +15,8 @@ import {initTranslation} from '../../translations/index';
 import i18next from 'i18next';
 
 export const StorePortals = ({navigation, modalizeRef}: IStore) => {
-  initTranslation();;
-  const {portals, setPortals} = usePortal();;
+  initTranslation();
+  const {portals, setPortals} = usePortal();
   const [name, setName] = React.useState('');
   const [url, setUrl] = React.useState('');
   const [emptyFields, setEmptyFields] = React.useState(false);
@@ -26,20 +26,20 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
     let portalsStorage;
     portalsStorage = await AsyncStorage.getItem('portal');
     portalsStorage = portalsStorage ? JSON.parse(portalsStorage) : null;
-    portalsStorage.push({name, url});;
-    AsyncStorage.setItem('portal', JSON.stringify(portalsStorage));;
-    setPortals(portalsStorage);;
+    portalsStorage.push({name, url});
+    AsyncStorage.setItem('portal', JSON.stringify(portalsStorage));
+    setPortals(portalsStorage);
     modalizeRef?.current?.close();
-    navigation.navigate(name);;
+    navigation.navigate(name);
   }
 
   async function onPress() {
     //return false;
-    if (!name || !url) return setEmptyFields(true);;
+    if (!name || !url) return setEmptyFields(true);
     try {
       let portalsFilter = portals.filter(
         (portal: {name: string; url: string}) => {
-          if (portal.name != name) return false;;
+          if (portal.name != name) return false;
           return portal;
         },
       );
@@ -73,6 +73,23 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
     </>
   );;
 
+  const textEmptyFields = () => (
+    <>
+      {emptyFields ? (
+        <TextEmptyFileds>
+          {i18next.t('mobileApp.portals.addPortalPopup.validation.emptyFilds')}
+        </TextEmptyFileds>
+      ) : null}
+      {nameAlreadyUsed ? (
+        <TextEmptyFileds>
+          {i18next.t(
+            'mobileApp.portals.addPortalPopup.validation.portalNameAlreadyExists',
+          )}
+        </TextEmptyFileds>
+      ) : null}
+    </>
+  );
+
   return (
     <>
       <WrapperStoreContainer>
@@ -80,6 +97,8 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
           {textEmptyFields()}
           <WrapperInput>
             <InputText
+              autoCapitalize={'none'}
+              autoCorrect={false}
               value={name}
               onChangeText={(e: any) => setName(e)}
               placeholder={i18next.t(
@@ -90,7 +109,8 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
           </WrapperInput>
           <WrapperInput>
             <InputText
-              autoCapitalize="none"
+              autoCapitalize={'none'}
+              autoCorrect={false}
               value={url}
               onChangeText={(e: any) => setUrl(e)}
               placeholder={i18next.t(
@@ -111,5 +131,5 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
         </WrapperStore>
       </WrapperStoreContainer>
     </>
-  );;
+  );
 }
