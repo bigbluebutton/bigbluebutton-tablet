@@ -71,23 +71,6 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
         </TextEmptyFileds>
       ) : null}
     </>
-  );;
-
-  const textEmptyFields = () => (
-    <>
-      {emptyFields ? (
-        <TextEmptyFileds>
-          {i18next.t('mobileApp.portals.addPortalPopup.validation.emptyFilds')}
-        </TextEmptyFileds>
-      ) : null}
-      {nameAlreadyUsed ? (
-        <TextEmptyFileds>
-          {i18next.t(
-            'mobileApp.portals.addPortalPopup.validation.portalNameAlreadyExists',
-          )}
-        </TextEmptyFileds>
-      ) : null}
-    </>
   );
 
   return (
