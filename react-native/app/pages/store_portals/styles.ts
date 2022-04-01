@@ -29,3 +29,11 @@ export const WrapperInput = styled.View`
 export const TextEmptyFileds = styled.Text`
   color: ${colors.danger};
 `;
+
+export const WrapperWebView = styled.View`
+  width: 10px;
+`;
+
+export const TextTest = styled.Text`
+  color: ${colors.white}
+`

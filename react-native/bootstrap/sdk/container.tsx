@@ -1,4 +1,4 @@
-import {BigbluebuttonMobile} from 'bigbluebutton-mobile-sdk';
+import {BigBlueButtonMobile} from 'bigbluebutton-mobile-sdk';
 import React from 'react';
 import {StyleSheet, View, Platform} from 'react-native';
 import { SdkContainerDiv } from './styles';
@@ -10,7 +10,7 @@ export default function SdkContainer({url}: ISdkContainer) {
   return (
     <>
       <SdkContainerDiv>
-        <BigbluebuttonMobile url={url} style={styles.bbb} />
+        <BigBlueButtonMobile url={url} style={styles.bbb} onError={()=>console.log('error')} onSuccess={()=>console.log('success')}/>
       </SdkContainerDiv>
     </>
   );
