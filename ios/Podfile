@@ -4,10 +4,12 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '14.7'
 
 target 'BigBlueButton Broadcast' do
-  pod 'bigbluebutton-mobile-sdk-common', :path => '../node_modules/bigbluebutton-mobile-sdk/common'
+  pod 'bigbluebutton-mobile-sdk-common', :path => '../node_modules/bigbluebutton-mobile-sdk/ios-common'
+  pod 'bigbluebutton-mobile-sdk-broadcast-upload-extension', :path => '../node_modules/bigbluebutton-mobile-sdk/ios-broadcast-upload-extension'
 end
 
 target 'BigBlueButton' do
+  pod 'bigbluebutton-mobile-sdk-common', :path => '../node_modules/bigbluebutton-mobile-sdk/ios-common'
   config = use_native_modules!
 
   use_react_native!(
