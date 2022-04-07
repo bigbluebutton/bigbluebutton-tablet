@@ -8,5 +8,6 @@ export default {
         "mobileApp.portals.addPortalPopup.confirm.button.label": "Adicionar Portal",
         "mobileApp.portals.drawerNavigation.button.label": "Portais",
         "mobileApp.portals.addPortalPopup.validation.emptyFilds": "Campos Vazios",
-        "mobileApp.portals.addPortalPopup.validation.portalNameAlreadyExists": "Nome Já Existe"
+        "mobileApp.portals.addPortalPopup.validation.portalNameAlreadyExists": "Nome Já Existe",
+        "mobileApp.portals.addPortalPopup.validation.urlInvalid": "Erro ao testar carregar a página, cheque se o endereço esta correto ou se sua internet esta conectada"
 }
