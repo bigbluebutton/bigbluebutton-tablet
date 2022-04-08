@@ -1,10 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {ListPortals} from '../pages/list_portals/component';
 import {usePortal} from '../contexts/portals/hook';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18next from 'i18next';
-
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import SdkContainer from '../../bootstrap/sdk/container';
 import {initTranslation} from '../translations/index';
@@ -43,13 +43,23 @@ export const Routes = () => {
           name={i18next.t('mobileApp.portals.drawerNavigation.button.label')}
           component={ListPortals}
         />
-        {portals || portals != 0
+        {portals || portals !== 0
           ? portals.map(item => {
               return (
                 <Drawer.Screen
                   key={item.name}
                   name={item.name}
-                  children={() => <SdkContainer url={item.url} />}
+                  children={itemNavigate => {
+                    return (
+                      <>
+                        <SdkContainer
+                          url={item.url}
+                          name={item.name}
+                          itemNavigate={itemNavigate}
+                        />
+                      </>
+                    );
+                  }}
                 />
               );
             })

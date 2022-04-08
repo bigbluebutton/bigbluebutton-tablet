@@ -1,6 +1,7 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 
 export const SdkContainerDiv = styled.SafeAreaView`
-    flex: 1;
-    flex-direction: row;
-`
+  flex: 1;
+  flex-direction: row;
+  opacity: ${props => (props.validatePortal ? '.2' : '1')};
+`;
