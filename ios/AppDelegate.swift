@@ -1,3 +1,9 @@
+//
+//  AppDelegate.swift
+//
+//  Created by Tiago Daniel Jacobs on 11/03/22.
+//
+
 import UIKit
 import bigbluebutton_mobile_sdk
 
