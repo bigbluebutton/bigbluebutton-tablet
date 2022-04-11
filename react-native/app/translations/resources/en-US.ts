@@ -9,5 +9,9 @@ export default {
         "mobileApp.portals.drawerNavigation.button.label": "Portals",
         "mobileApp.portals.addPortalPopup.validation.emptyFilds": "Empty Fields",
         "mobileApp.portals.addPortalPopup.validation.portalNameAlreadyExists": "Name Already Exists",
-        "mobileApp.portals.addPortalPopup.validation.urlInvalid": "Error trying to load the page - check if address is correct and your network is connected"
+        "mobileApp.portals.addPortalPopup.validation.urlInvalid": "Error trying to load the page - check if address is correct and your network is connected",
+        "mobileApp.portals.changePortal.validation.modal.title": "Attention",
+        "mobileApp.portals.changePortal.validation.modal.message": "Are you sure you want to exit the portal",
+        "mobileApp.portals.changePortal.validation.modal.button.yes": "Yes, Continue",
+        "mobileApp.portals.changePortal.validation.modal.button.no": "Not, Back",
 }

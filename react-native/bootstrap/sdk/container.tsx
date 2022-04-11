@@ -1,81 +1,83 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import {BigbluebuttonMobile} from 'bigbluebutton-mobile-sdk';
+import {BigBlueButtonMobile} from 'bigbluebutton-mobile-sdk';
 import React from 'react';
-import {StyleSheet, Platform, Text} from 'react-native';
+import {StyleSheet, Platform, Text, View} from 'react-native';
 import {SdkContainerDiv} from './styles';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import {useIsFocused} from '@react-navigation/native';
 import {useRenderPortal} from '../../app/contexts/renderPortal/hook';
 import {colors} from '../../app/styles/colors';
 import {ISdkContainer} from './types';
-
+import i18next from 'i18next';
+import { initTranslation } from '../../app/translations';
 export default function SdkContainer({url, itemNavigate, name}: ISdkContainer) {
-  const [renderPortal, setRenderPortal] = React.useState(true);
+  initTranslation()
+  const [renderPortalValidation, setRenderPortalValidation] = React.useState(true);
   const {
-    validatePortal,
-    setValidatePortal,
-    setPortalWantBeRenderized,
-    clickNo,
-    clickYes,
-    showAlert,
+    renderPortal, setRenderPortal
   } = useRenderPortal();
   const isFocused = useIsFocused();
-
   React.useEffect(() => {
+
     if (!isFocused) {
-      if (!clickNo.current) {
-        setValidatePortal({name, itemNavigate});
+      //Check if clickNo is active to enable modal,
+      //because if portal which desrender is background during validation after choose anyone
+      //cannot set a new validation
+      if (!renderPortal.clickNo) { 
+        setRenderPortal({
+          type: "InitValidateModal",
+          payload: {name, itemNavigate}
+        });
       }
-      clickNo.current = false;
+      setRenderPortal({type: "ClickNoFalse"})
     } else {
-      setRenderPortal(true);
-      setPortalWantBeRenderized({name, itemNavigate});
+      setRenderPortalValidation(true);
     }
   }, [isFocused]);
 
   React.useEffect(() => {
-    if (!isFocused && clickYes.current) {
-      setRenderPortal(false);
-      clickYes.current = false;
+    if (!isFocused && renderPortal.clickYes) {
+      setRenderPortal({type: "ClickYesFalse"})
+      setRenderPortalValidation(false);
     }
-  }, [validatePortal]);
+
+  }, [renderPortal.validatePortal]);
 
   return (
     <>
-      {validatePortal ? (
+
+      {renderPortal.validatePortal ? (
         <AwesomeAlert
-          show={showAlert.current}
+          show={renderPortal.showAlert}
           showProgress={true}
-          title="Atenção"
-          message={`Voce tem certeza que deseja sair do portal ${validatePortal.name}`}
+          title={`${i18next.t('mobileApp.portals.changePortal.validation.modal.title')}`}
+          message={`${i18next.t('mobileApp.portals.changePortal.validation.modal.message')} ${renderPortal.validatePortal.name}?`}
           closeOnTouchOutside={false}
           closeOnHardwareBackPress={false}
           showCancelButton={true}
           showConfirmButton={true}
-          cancelText="Não, Voltar"
-          confirmText="Sim, Continuar"
+          cancelText={`${i18next.t('mobileApp.portals.changePortal.validation.modal.button.no')}`}
+          confirmText={`${i18next.t('mobileApp.portals.changePortal.validation.modal.button.yes')}`}
           confirmButtonColor={colors.primary}
           onCancelPressed={() => {
-            clickNo.current = true;
-            setValidatePortal(false);
-            showAlert.current = false;
-            validatePortal.itemNavigate.navigation.navigate(
-              validatePortal.name,
+            setRenderPortal({
+              type: "ClickNoModal"
+            })
+            renderPortal.validatePortal.itemNavigate.navigation.navigate(
+              renderPortal.validatePortal.name,
             );
           }}
-          onConfirmPressed={() => {
-            clickYes.current = true;
-            setValidatePortal(false);
-            showAlert.current = false;
+          onConfirmPressed={() => {            
+            setRenderPortal({
+              type: "ClickYesModal"
+            })            
           }}
         />
       ) : null}
 
-      {validatePortal ? <Text>Validando</Text> : null}
-
-      {renderPortal ? (
-        <SdkContainerDiv validatePortal={validatePortal}>
-          <BigbluebuttonMobile url={url} style={styles.bbb} />
+      {renderPortalValidation ? (
+        <SdkContainerDiv validatePortal={renderPortal.validatePortal}>
+          <BigBlueButtonMobile url={url} style={styles.bbb} />
         </SdkContainerDiv>
       ) : null}
     </>

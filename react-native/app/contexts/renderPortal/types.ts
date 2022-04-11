@@ -1,13 +1,23 @@
+import { Dispatch } from "react";
+
 export type IRenderPortals = {
-  validatePortal?: any;
-  setValidatePortal?: any;
-  portalWantBeRenderized?: any;
-  setPortalWantBeRenderized?: any;
-  portalDisfocused?: any;
-  setPortalDisfocused?: any;
-  clickNo?: any;
-  setClickNo?: any;
-  clickYes?: any;
-  setClickYes?: any;
-  showAlert?: any;
+  renderPortal: IState,
+  setRenderPortal: Dispatch<IAction>
 };
+
+
+export type IValidatePortal = {
+  name: string;
+  itemNavigate: object;
+}
+export type IState = {
+  validatePortal: boolean | IValidatePortal,
+  clickNo: boolean,
+  clickYes: boolean,
+  showAlert: boolean
+}
+
+export type IAction = {
+  type: string;
+  payload?: any;
+}

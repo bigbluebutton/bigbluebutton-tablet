@@ -1,31 +1,67 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import {RenderPortalContext} from './context';
-import {IRenderPortals} from './types';
+import {IAction, IRenderPortals, IState} from './types';
 
 export const RenderPortalContextContainer = ({children}: any) => {
-  const [validatePortal, setValidatePortal] = React.useState(false);
-  const [portalWantBeRenderized, setPortalWantBeRenderized] =
-    React.useState(false);
-  const [portalDisfocused, setPortalDisfocused] = React.useState(false);
-  const clickNo = React.useRef(false);
-  const clickYes = React.useRef(false);
-  const showAlert = React.useRef(false);
-  if (validatePortal && typeof validatePortal !== 'undefined') {
-    showAlert.current = true;
+
+  const renderPortalReducer = (state: IState, action: IAction)=>{
+    switch(action.type){
+      case 'InitValidateModal':
+        return {
+          ...state,
+          validatePortal: action.payload,
+          clickNo: false
+        }
+      case 'ClickYesFalse':
+        return {
+          ...state,
+          clickYes: false
+        }
+      case 'ClickNoFalse':
+        return {
+          ...state,
+          clickNo: false
+        }
+      case 'ClickNoModal':
+        return {
+          ...state,
+          clickNo: true,
+          validatePortal: false,
+          showAlert: false
+        }
+      case 'ClickYesModal':
+        return {
+          ...state,
+          clickYes: true,
+          validatePortal: false,
+          showAlert: false
+        }
+      default: 
+        return state
+    }
+
+
+  }
+
+  const renderPortalInitialValue = {
+    validatePortal: false,
+    clickNo: false,
+    clickYes: false,
+    showAlert: false
+  }
+
+  const [renderPortal, setRenderPortal] = useReducer(renderPortalReducer, renderPortalInitialValue)
+
+
+  if (renderPortal.validatePortal && typeof renderPortal.validatePortal !== 'undefined') {
+    renderPortal.showAlert = true;
   } else {
-    showAlert.current = false;
+    renderPortal.showAlert = false;
   }
 
   const validatePortalHook: IRenderPortals = {
-    validatePortal,
-    setValidatePortal,
-    portalWantBeRenderized,
-    setPortalWantBeRenderized,
-    portalDisfocused,
-    setPortalDisfocused,
-    clickYes,
-    clickNo,
-    showAlert,
+    renderPortal,
+    setRenderPortal
   };
   return (
     <>
