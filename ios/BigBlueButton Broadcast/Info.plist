@@ -10,6 +10,8 @@
 		<string>$(PRODUCT_MODULE_NAME).SampleHandler</string>
 		<key>RPBroadcastProcessMode</key>
 		<string>RPBroadcastProcessModeSampleBuffer</string>
+        	<key>NSMicrophoneUsageDescription</key>
+	        <string>BigBlueButton needs microphone access to allow you to share your microphone during a meeting.</string>
 	</dict>
 </dict>
 </plist>
