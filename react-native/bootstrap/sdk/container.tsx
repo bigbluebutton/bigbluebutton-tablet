@@ -12,46 +12,47 @@ import i18next from 'i18next';
 import { initTranslation } from '../../app/translations';
 export default function SdkContainer({url, itemNavigate, name}: ISdkContainer) {
   initTranslation()
-  const [renderPortalValidation, setRenderPortalValidation] = React.useState(true);
+  const [portalCanBeRendered, setPortalCanBeRendered] = React.useState(true);
   const {
-    renderPortal, setRenderPortal
+    reducerWithStateOfValidationsOnChangePortal, setReducerWithStateOfValidationsOnChangePortal
   } = useRenderPortal();
   const isFocused = useIsFocused();
   React.useEffect(() => {
 
     if (!isFocused) {
       //Check if clickNo is active to enable modal,
-      //because if portal which desrender is background during validation after choose anyone
+      //because if portal which desrender is background
+      //during validation after choose anyone
       //cannot set a new validation
-      if (!renderPortal.clickNo) { 
-        setRenderPortal({
-          type: "InitValidateModal",
+      if (!reducerWithStateOfValidationsOnChangePortal.clickNo) { 
+        setReducerWithStateOfValidationsOnChangePortal({
+          type: "InitValidation",
           payload: {name, itemNavigate}
         });
       }
-      setRenderPortal({type: "ClickNoFalse"})
+      setReducerWithStateOfValidationsOnChangePortal({type: "ClickButtonNoAndSetFalse"})
     } else {
-      setRenderPortalValidation(true);
+      setPortalCanBeRendered(true);
     }
   }, [isFocused]);
 
   React.useEffect(() => {
-    if (!isFocused && renderPortal.clickYes) {
-      setRenderPortal({type: "ClickYesFalse"})
-      setRenderPortalValidation(false);
+    if (!isFocused && reducerWithStateOfValidationsOnChangePortal.clickYes) {
+      setReducerWithStateOfValidationsOnChangePortal({type: "ClickButtonYesAndSetFalse"})
+      setPortalCanBeRendered(false);
     }
 
-  }, [renderPortal.validatePortal]);
+  }, [reducerWithStateOfValidationsOnChangePortal.hasPortalToValid]);
 
   return (
     <>
 
-      {renderPortal.validatePortal ? (
+      {reducerWithStateOfValidationsOnChangePortal.hasPortalToValid ? (
         <AwesomeAlert
-          show={renderPortal.showAlert}
+          show={reducerWithStateOfValidationsOnChangePortal.showAlert}
           showProgress={true}
           title={`${i18next.t('mobileApp.portals.changePortal.validation.modal.title')}`}
-          message={`${i18next.t('mobileApp.portals.changePortal.validation.modal.message')} ${renderPortal.validatePortal.name}?`}
+          message={`${i18next.t('mobileApp.portals.changePortal.validation.modal.message')} ${reducerWithStateOfValidationsOnChangePortal.hasPortalToValid.name}?`}
           closeOnTouchOutside={false}
           closeOnHardwareBackPress={false}
           showCancelButton={true}
@@ -60,23 +61,23 @@ export default function SdkContainer({url, itemNavigate, name}: ISdkContainer) {
           confirmText={`${i18next.t('mobileApp.portals.changePortal.validation.modal.button.yes')}`}
           confirmButtonColor={colors.primary}
           onCancelPressed={() => {
-            setRenderPortal({
-              type: "ClickNoModal"
+            setReducerWithStateOfValidationsOnChangePortal({
+              type: "ClickButtonNoModal"
             })
-            renderPortal.validatePortal.itemNavigate.navigation.navigate(
-              renderPortal.validatePortal.name,
+            reducerWithStateOfValidationsOnChangePortal.hasPortalToValid.itemNavigate.navigation.navigate(
+              reducerWithStateOfValidationsOnChangePortal.hasPortalToValid.name,
             );
           }}
           onConfirmPressed={() => {            
-            setRenderPortal({
-              type: "ClickYesModal"
+            setReducerWithStateOfValidationsOnChangePortal({
+              type: "ClickButtonYesModal"
             })            
           }}
         />
       ) : null}
 
-      {renderPortalValidation ? (
-        <SdkContainerDiv validatePortal={renderPortal.validatePortal}>
+      {portalCanBeRendered ? (
+        <SdkContainerDiv validatePortal={reducerWithStateOfValidationsOnChangePortal.hasPortalToValid}>
           <BigBlueButtonMobile url={url} style={styles.bbb} />
         </SdkContainerDiv>
       ) : null}

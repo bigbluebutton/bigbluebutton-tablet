@@ -6,34 +6,34 @@ export const RenderPortalContextContainer = ({children}: any) => {
 
   const renderPortalReducer = (state: IState, action: IAction)=>{
     switch(action.type){
-      case 'InitValidateModal':
+      case 'InitValidation':
         return {
           ...state,
-          validatePortal: action.payload,
+          hasPortalToValid: action.payload,
           clickNo: false
         }
-      case 'ClickYesFalse':
+      case 'ClickButtonYesAndSetFalse':
         return {
           ...state,
           clickYes: false
         }
-      case 'ClickNoFalse':
+      case 'ClickButtonNoAndSetFalse':
         return {
           ...state,
           clickNo: false
         }
-      case 'ClickNoModal':
+      case 'ClickButtonNoModal':
         return {
           ...state,
           clickNo: true,
-          validatePortal: false,
+          hasPortalToValid: false,
           showAlert: false
         }
-      case 'ClickYesModal':
+      case 'ClickButtonYesModal':
         return {
           ...state,
           clickYes: true,
-          validatePortal: false,
+          hasPortalToValid: false,
           showAlert: false
         }
       default: 
@@ -44,24 +44,24 @@ export const RenderPortalContextContainer = ({children}: any) => {
   }
 
   const renderPortalInitialValue = {
-    validatePortal: false,
+    hasPortalToValid: false,
     clickNo: false,
     clickYes: false,
     showAlert: false
   }
 
-  const [renderPortal, setRenderPortal] = useReducer(renderPortalReducer, renderPortalInitialValue)
+  const [reducerWithStateOfValidationsOnChangePortal, setReducerWithStateOfValidationsOnChangePortal] = useReducer(renderPortalReducer, renderPortalInitialValue)
 
 
-  if (renderPortal.validatePortal && typeof renderPortal.validatePortal !== 'undefined') {
-    renderPortal.showAlert = true;
+  if (reducerWithStateOfValidationsOnChangePortal.hasPortalToValid && typeof reducerWithStateOfValidationsOnChangePortal.hasPortalToValid !== 'undefined') {
+    reducerWithStateOfValidationsOnChangePortal.showAlert = true;
   } else {
-    renderPortal.showAlert = false;
+    reducerWithStateOfValidationsOnChangePortal.showAlert = false;
   }
 
   const validatePortalHook: IRenderPortals = {
-    renderPortal,
-    setRenderPortal
+    reducerWithStateOfValidationsOnChangePortal,
+    setReducerWithStateOfValidationsOnChangePortal
   };
   return (
     <>

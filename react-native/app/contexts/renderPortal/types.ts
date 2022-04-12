@@ -1,8 +1,8 @@
 import { Dispatch } from "react";
 
 export type IRenderPortals = {
-  renderPortal: IState,
-  setRenderPortal: Dispatch<IAction>
+  reducerWithStateOfValidationsOnChangePortal: IState,
+  setReducerWithStateOfValidationsOnChangePortal: Dispatch<IAction>
 };
 
 
@@ -11,7 +11,7 @@ export type IValidatePortal = {
   itemNavigate: object;
 }
 export type IState = {
-  validatePortal: boolean | IValidatePortal,
+  hasPortalToValid: boolean | IValidatePortal,
   clickNo: boolean,
   clickYes: boolean,
   showAlert: boolean
