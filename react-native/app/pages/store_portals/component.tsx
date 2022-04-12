@@ -65,7 +65,7 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
     setEmptyFields(false)
     setUrlInvalid(false)
     if (!name || !url) return setEmptyFields(true);
-    if(!url.includes('://')) setUrl('https://www.'+url)
+    if(!url.includes('://')) setUrl('https://'+url)
     setLoadComponent(true)
   }
 
