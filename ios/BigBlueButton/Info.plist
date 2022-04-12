@@ -26,20 +26,17 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>NSAllowsArbitraryLoads</key>
-			<false/>
-		</dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UIAppFonts</key>
 	<array/>
-        <key>NSMicrophoneUsageDescription</key>
-        <string>BigBlueButton needs microphone access to allow you to share your microphone during a meeting.</string>
-        <key>NSCameraUsageDescription</key>
-        <string>BigBlueButton needs camera access to allow you to share your camera during a meeting.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>BigBlueButton needs microphone access to allow you to share your microphone during a meeting.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>BigBlueButton needs camera access to allow you to share your camera during a meeting.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
