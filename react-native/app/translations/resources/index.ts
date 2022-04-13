@@ -1,11 +1,11 @@
-import enUS from "./en-US";
-import ptBR from "./pt-BR";
+import en from "./en";
+import ptBR from "./pt_BR";
 
 export default {
-    'en-US': {
-        translation: enUS
-    },
-    'pt-BR': {
-        translation: ptBR
-    }
+	'en': {
+		translation: en
+	},
+	'pt-BR': {
+		translation: ptBR
+	},
 }
