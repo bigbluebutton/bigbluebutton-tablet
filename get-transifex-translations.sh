@@ -5,17 +5,17 @@ RED='\033[0;31m'
 GREEN='\033[1;32m'
 NC='\033[0m'
 SOURCE_LANGUAGE="en"
-LOCALES_DIRECTORY="./resources/"
+LOCALES_DIRECTORY="./react-native/app/translations/resources/"
 PULL_SOURCE=true
 
 if [[ ! -e $LOCALES_DIRECTORY ]]; then
     echo -e "Directory ${RED}$LOCALES_DIRECTORY${NC} does not exist, creating"
-    mkdir $LOCALES_DIRECTORY
+    mkdir -p $LOCALES_DIRECTORY
 fi
 
 if [ "$#" = 0 ]
 then
-  echo -e "${RED}ERR${NC}: Usage = ${GREEN}./transifex.sh pt_BR de  ${NC}or  ${GREEN}./transifex all${NC}"
+  echo -e "${RED}ERR${NC}: Usage = ${GREEN}./get-transifex-translations.sh pt_BR de  ${NC}or  ${GREEN}./get-transifex-translations all${NC}"
 else
   read -p "Enter Transifex Username: " USER
   read -p "password: " -s PW
