@@ -85,9 +85,9 @@ export const TextButtonOpen = styled.Text`
 
 
 export const TextWithoutPortal = styled.Text`
-    color: ${colors.primary};
+    color: ${(props)=> (props.color ? colors.primary_light:  colors.primary)};
     font-size: 20px;
-
+    text-align: center;
 `
 
 export const ButtonDelete = styled.TouchableOpacity`

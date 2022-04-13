@@ -22,6 +22,8 @@ import {IHandles} from 'react-native-modalize/lib/options';
 import {IItem, IItemDelete, IListPortalsDTO} from './types';
 import i18next from 'i18next';
 import {initTranslation} from '../../translations/index';
+import { TouchableOpacity } from 'react-native';
+import { new_portal_name_and_url } from '../utils/new_portal_name_and_url';
 
 export const ListPortals = ({navigation}: IListPortalsDTO) => {
   initTranslation();
@@ -78,6 +80,20 @@ export const ListPortals = ({navigation}: IListPortalsDTO) => {
   };
 
   const onPress = (namePortal: string) => navigation.navigate(namePortal);
+  
+  const onPressTextCreateDemoServer = async ()=>{
+    const nameDemoServer = "Demo Server";
+    const urlDemoServer = "https://bigbluebutton.org"
+
+    const createDemoServerOrError = await new_portal_name_and_url(nameDemoServer, urlDemoServer)
+    console.log(createDemoServerOrError)
+    if(createDemoServerOrError){
+      setPortals(createDemoServerOrError);
+      navigation.navigate(nameDemoServer);
+    } else {
+      console.log("error when go create demo server")
+    }
+  }
 
   const Item = ({namePortal, url}: IItem) => (
     <WrapperItemListText onPress={() => onPress(namePortal)}>
@@ -144,9 +160,16 @@ export const ListPortals = ({navigation}: IListPortalsDTO) => {
           }}
         />
       ) : (
-        <TextWithoutPortal>
-          {i18next.t('mobileApp.portals.list.empty.label')}
-        </TextWithoutPortal>
+        <>
+          <TextWithoutPortal>
+            {i18next.t('mobileApp.portals.list.empty.addFirstPortal.label')}        
+          </TextWithoutPortal>
+          <TouchableOpacity onPress={()=>onPressTextCreateDemoServer()}>
+            <TextWithoutPortal color={true}>
+              {i18next.t('mobileApp.portals.list.empty.orUseOurDemoServer.label')}
+            </TextWithoutPortal>
+          </TouchableOpacity>
+        </>
       )}
     </WrapperListContainer>
   );
