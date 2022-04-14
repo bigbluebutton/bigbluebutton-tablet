@@ -1,3 +1,4 @@
+import { useIsFocused } from '@react-navigation/native';
 import {BigBlueButtonMobile} from 'bigbluebutton-mobile-sdk';
 import React from 'react';
 import {StyleSheet, View, Platform} from 'react-native';
@@ -7,11 +8,15 @@ type ISdkContainer = {
   props?: any;
 };
 export default function SdkContainer({url}: ISdkContainer) {
+  const isPortalFocused = useIsFocused()
   return (
     <>
+      {isPortalFocused ? 
       <SdkContainerDiv>
         <BigBlueButtonMobile url={url} style={styles.bbb} onError={()=>console.log('error')} onSuccess={()=>console.log('success')}/>
-      </SdkContainerDiv>
+      </SdkContainerDiv> :
+      null }
+      
     </>
   );
 }
