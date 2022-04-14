@@ -15,6 +15,7 @@ import {IStore} from './types';
 import {initTranslation} from '../../translations/index';
 import i18next from 'i18next';
 import { BigBlueButtonMobile } from 'bigbluebutton-mobile-sdk';
+import { new_portal_name_and_url } from '../utils/new_portal_name_and_url';
 
 export const StorePortals = ({navigation, modalizeRef}: IStore) => {
   initTranslation();
@@ -26,15 +27,15 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
   const [urlInvalid, setUrlInvalid] = React.useState(false);
   const [loadComponent, setLoadComponent] = React.useState(false);
 
-  async function newPortal(name: string, url: string) {
-    let portalsStorage;
-    portalsStorage = await AsyncStorage.getItem('portal');
-    portalsStorage = portalsStorage ? JSON.parse(portalsStorage) : null;
-    portalsStorage.push({name, url});
-    AsyncStorage.setItem('portal', JSON.stringify(portalsStorage));
-    setPortals(portalsStorage);
-    modalizeRef?.current?.close();
-    navigation.navigate(name);
+  async function afterValidationsToCreatePortalAddANew(name: string, url: string) {
+    const objPortalsOrError = await new_portal_name_and_url(name, url )
+    if(objPortalsOrError){
+      setPortals(objPortalsOrError);
+      modalizeRef?.current?.close();
+      navigation.navigate(name);
+    } else {
+      return Error("Error to create a new portal")
+    }
   }
 
   const validateAndCreateNewPortal = async ()=>{
@@ -50,11 +51,11 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
         setNameAlreadyUsed(true);
         return false;
       }
-      await newPortal(name, url);
+      await afterValidationsToCreatePortalAddANew(name, url);
     } catch (e) {
       console.log('error', e);
       await AsyncStorage.setItem('portal', JSON.stringify([]));
-      newPortal(name, url);
+      afterValidationsToCreatePortalAddANew(name, url);
       return null;
     }
   }
@@ -146,9 +147,7 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
               autoCorrect={false}
               value={url}
               onChangeText={(e: any) => setUrl(e)}
-              placeholder={i18next.t(
-                'mobileApp.portals.fields.url.placeholder',
-              )}
+              placeholder={"https://demo.bigbluebutton.org"}
               label={i18next.t('mobileApp.portals.fields.url.label')}
             />
           </WrapperInput>
