@@ -7,6 +7,6 @@ export const initTranslation = ()=>{
         compatibilityJSON: 'v3',
         lng: RNLanguages.language,
         resources: resources,
-        fallbackLng: 'en-US',
+        fallbackLng: 'en',
     })
 } 
