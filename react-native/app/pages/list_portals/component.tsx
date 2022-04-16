@@ -62,7 +62,7 @@ export const ListPortals = ({navigation}: IListPortalsDTO) => {
         portalsStorage = JSON.parse(portalsStorage as string);
         const newPortalStorage = portalsStorage?.filter(
           (portalItem: IItemDelete) => {
-            if (item.name == portalItem.name) {
+            if (item.name === portalItem.name) {
               return false;
             }
             return portalItem;
