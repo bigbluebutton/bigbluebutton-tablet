@@ -297,7 +297,7 @@ PODS:
     - React-Core
   - RNCMaskedView (0.1.11):
     - React
-  - RNGestureHandler (2.3.0):
+  - RNGestureHandler (2.2.0):
     - React-Core
   - RNLanguages (3.0.2):
     - React
@@ -329,7 +329,7 @@ PODS:
     - React-RCTText
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.13.0):
+  - RNScreens (3.13.1):
     - React-Core
     - React-RCTImage
   - RNVectorIcons (9.1.0):
@@ -516,10 +516,10 @@ SPEC CHECKSUMS:
   ReactNativeLocalization: 076497d7ca70341c751cd3b3e7c86187332a182d
   RNCAsyncStorage: b49b4e38a1548d03b74b30e558a1d18465b94be7
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
-  RNGestureHandler: 77d59828d40838c9fabb76a12d2d0a80c006906f
+  RNGestureHandler: bf572f552ea324acd5b5464b8d30755b2d8c1de6
   RNLanguages: 962e562af0d34ab1958d89bcfdb64fafc37c513e
   RNReanimated: 32c91e28f5780937b8efc07ddde1bab8d373fe0b
-  RNScreens: aa12070b21c1d6011b3627a0b1d09b627232b070
+  RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
   RNVectorIcons: 7923e585eaeb139b9f4531d25a125a1500162a0b
   WebRTC-lib: 508fe02efa0c1a3a8867082a77d24c9be5d29aeb
   Yoga: 9b6696970c3289e8dea34b3eda93f23e61fb8121
