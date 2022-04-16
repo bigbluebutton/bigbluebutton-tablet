@@ -43,7 +43,7 @@ export const Routes = () => {
           name={i18next.t('mobileApp.portals.drawerNavigation.button.label')}
           component={ListPortals}
         />
-        {portals || portals != 0
+        {portals && portals.length
           ? portals.map(item => {
               return (
                 <Drawer.Screen
