@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -29,14 +29,14 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
-	<key>UIAppFonts</key>
-	<array/>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>BigBlueButton needs microphone access to allow you to share your microphone during a meeting.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>BigBlueButton needs camera access to allow you to share your camera during a meeting.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>BigBlueButton needs microphone access to allow you to share your microphone during a meeting.</string>
+	<key>UIAppFonts</key>
+	<array/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
@@ -52,6 +52,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
