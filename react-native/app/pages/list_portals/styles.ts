@@ -18,7 +18,9 @@ export const WrapperList = styled.FlatList`
     border-radius: 10px;
 `
 
-export const WrapperItemListText = styled.TouchableOpacity`
+export const WrapperItemListText = styled.TouchableOpacity.attrs(props=>({
+    activeOpacity: 1
+}))`
 
     width: 300px;
     padding: 5px;
