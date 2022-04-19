@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import React from 'react';
 import {InputText} from '../../components/input/text/component';
 import {
@@ -14,8 +15,8 @@ import {usePortal} from '../../contexts/portals/hook';
 import {IStore} from './types';
 import {initTranslation} from '../../translations/index';
 import i18next from 'i18next';
-import { BigBlueButtonMobile } from 'bigbluebutton-mobile-sdk';
-import { new_portal_name_and_url } from '../utils/new_portal_name_and_url';
+import {BigBlueButtonMobile} from 'bigbluebutton-mobile-sdk';
+import {createNewPortal} from '../utils/createNewPortal';
 
 export const StorePortals = ({navigation, modalizeRef}: IStore) => {
   initTranslation();
@@ -27,19 +28,20 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
   const [urlInvalid, setUrlInvalid] = React.useState(false);
   const [loadComponent, setLoadComponent] = React.useState(false);
 
-  async function afterValidationsToCreatePortalAddANew(name: string, url: string) {
-    const objPortalsOrError = await new_portal_name_and_url(name, url )
-    if(objPortalsOrError){
-      setPortals(objPortalsOrError);
-      modalizeRef?.current?.close();
-      navigation.navigate(name);
-    } else {
-      return Error("Error to create a new portal")
-    }
+  async function afterValidationsToCreatePortalAddANew(
+    name: string,
+    url: string,
+  ) {
+    const listPortals = await createNewPortal({
+      name,
+      url,
+    });
+    setPortals(listPortals);
+    modalizeRef?.current?.close();
+    navigation.navigate(name);
   }
 
-  const validateAndCreateNewPortal = async ()=>{
-    
+  const validateAndCreateNewPortal = async () => {
     try {
       let portalsFilter = portals.filter(
         (portal: {name: string; url: string}) => {
@@ -58,16 +60,17 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
       afterValidationsToCreatePortalAddANew(name, url);
       return null;
     }
-  }
-  
+  };
 
   async function onPress() {
-    setNameAlreadyUsed(false)
-    setEmptyFields(false)
-    setUrlInvalid(false)
+    setNameAlreadyUsed(false);
+    setEmptyFields(false);
+    setUrlInvalid(false);
     if (!name || !url) return setEmptyFields(true);
-    if(!url.includes('://')) setUrl('https://'+url)
-    setLoadComponent(true)
+    if (!url.includes('://')) {
+      setUrl('https://' + url);
+    }
+    setLoadComponent(true);
   }
 
   const textEmptyFields = () => (
@@ -91,25 +94,24 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
       ) : null}
     </>
   );
-  const onErrorLoadUrl = ()=>{
+  const onErrorLoadUrl = () => {
     setUrlInvalid(true);
     setLoadComponent(false);
-  }
+  };
 
-  const loadComponentOnValidateUrl = ()=>{
-    if(!loadComponent) return (
-      <ButtonApp onPress={onPress}>
-        <Text>
-          {i18next.t(
-            'mobileApp.portals.addPortalPopup.confirm.button.label',
-          )}
-        </Text>
-      </ButtonApp>
-    );
+  const loadComponentOnValidateUrl = () => {
+    if (!loadComponent)
+      return (
+        <ButtonApp onPress={onPress}>
+          <Text>
+            {i18next.t('mobileApp.portals.addPortalPopup.confirm.button.label')}
+          </Text>
+        </ButtonApp>
+      );
 
     return (
       <View>
-        <ActivityIndicator/>
+        <ActivityIndicator />
         <WrapperWebView>
           <BigBlueButtonMobile
             url={url}
@@ -118,17 +120,16 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
             onSuccess={() => validateAndCreateNewPortal()}
           />
         </WrapperWebView>
-       </View>
-      
-    )
-  }
+      </View>
+    );
+  };
 
   return (
     <>
       <WrapperStoreContainer>
         <WrapperStore>
           {textEmptyFields()}
-          
+
           <WrapperInput>
             <InputText
               autoCapitalize={'none'}
@@ -147,20 +148,20 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
               autoCorrect={false}
               value={url}
               onChangeText={(e: any) => setUrl(e)}
-              placeholder={"https://demo.bigbluebutton.org"}
+              placeholder={'https://demo.bigbluebutton.org'}
               label={i18next.t('mobileApp.portals.fields.url.label')}
             />
           </WrapperInput>
-          <WrapperInput>
-            {loadComponentOnValidateUrl()}                        
-          </WrapperInput>
+          <WrapperInput>{loadComponentOnValidateUrl()}</WrapperInput>
         </WrapperStore>
       </WrapperStoreContainer>
     </>
   );
-}
+};
 
-const styles = StyleSheet.create({bbb: {
-  marginTop: 48,
-  flex: 1,
-},})
+const styles = StyleSheet.create({
+  bbb: {
+    marginTop: 48,
+    flex: 1,
+  },
+});
