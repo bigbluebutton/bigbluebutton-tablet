@@ -23,7 +23,7 @@ import {IItem, IItemDelete, IListPortalsDTO} from './types';
 import i18next from 'i18next';
 import {initTranslation} from '../../translations/index';
 import {TouchableOpacity} from 'react-native';
-import {new_portal_name_and_url} from '../utils/new_portal_name_and_url';
+import {createNewPortal} from '../utils/createNewPortal';
 
 export const ListPortals = ({navigation}: IListPortalsDTO) => {
   initTranslation();
@@ -85,17 +85,13 @@ export const ListPortals = ({navigation}: IListPortalsDTO) => {
     const nameDemoServer = 'Demo Server';
     const urlDemoServer = 'https://demo-ios.bigbluebutton.org';
 
-    const createDemoServerOrError = await new_portal_name_and_url(
-      nameDemoServer,
-      urlDemoServer,
-    );
-    console.log(createDemoServerOrError);
-    if (createDemoServerOrError) {
-      setPortals(createDemoServerOrError);
-      navigation.navigate(nameDemoServer);
-    } else {
-      console.log('error when go create demo server');
-    }
+    const listPortals = await createNewPortal({
+      name: nameDemoServer,
+      url: urlDemoServer,
+    });
+
+    setPortals(listPortals);
+    navigation.navigate(nameDemoServer);
   };
 
   const Item = ({namePortal, url}: IItem) => (
