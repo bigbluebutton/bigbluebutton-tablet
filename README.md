@@ -32,13 +32,19 @@ To build this application in mac, you need to run:
 sudo gem install cocoapods
 
 # Install dependencies
-npx pod-install
+yarn
 
-# In one terminal, start metro:
-npx react-native start
+# Install pods
+cd ios && pod install && cd -
 
-# In other terminal, run the app:
-npx react-native run-ios --simulator="iPhone 13"
+# Option 1 - Run simulator and metro in one command
+yarn ios
+
+# Option 2 - Two commands approach:
+## In one terminal, start metro:
+## npx react-native start
+## In other terminal, run the app:
+## npx react-native run-ios --simulator="iPhone 13"
 
 ```
 
