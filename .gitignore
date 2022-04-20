@@ -64,3 +64,5 @@ buck-out/
 # Thumbnails
 ._*
 
+
+/package-lock.json
