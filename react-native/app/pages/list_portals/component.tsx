@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React from 'react';
 import {
+  BlockTextWithoutPortal,
   ButtonDelete,
   ButtonOpen,
   DivButtonDelete,
@@ -160,16 +161,18 @@ export const ListPortals = ({navigation}: IListPortalsDTO) => {
         />
       ) : (
         <>
-          <TextWithoutPortal>
-            {i18next.t('mobileApp.portals.list.empty.addFirstPortal.label')}
-          </TextWithoutPortal>
-          <TouchableOpacity onPress={() => onPressTextCreateDemoServer()}>
-            <TextWithoutPortal color={true}>
-              {i18next.t(
-                'mobileApp.portals.list.empty.orUseOurDemoServer.label',
-              )}
+          <BlockTextWithoutPortal>
+            <TextWithoutPortal>
+              {i18next.t('mobileApp.portals.list.empty.addFirstPortal.label')+' '}
+              <TextWithoutPortal onPress={() => onPressTextCreateDemoServer()} color={true}>
+                {i18next.t(
+                  'mobileApp.portals.list.empty.orUseOurDemoServer.label',
+                )}
+              </TextWithoutPortal>
+
             </TextWithoutPortal>
-          </TouchableOpacity>
+              
+          </BlockTextWithoutPortal>
         </>
       )}
     </WrapperListContainer>
