@@ -66,5 +66,3 @@ buck-out/
 
 
 /package-lock.json
-
-metro.config.js
