@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RCTBridgeDelegate {
 
   func sourceURL(for bridge: RCTBridge!) -> URL! {
 //#if DEBUG
-    return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource:nil)
+    return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
 //#else
 //    let mainBundle = Bundle.main
 //    return mainBundle.url(forResource: "main", withExtension: "jsbundle")!
