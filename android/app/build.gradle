@@ -125,7 +125,7 @@ def enableHermes = project.ext.react.get("enableHermes", false);
  * Architectures to build native code for in debug.
  */
 def nativeArchitectures = project.getProperties().get("reactNativeDebugArchitectures")
-
+def useIntlJsc = false
 android {
     ndkVersion rootProject.ext.ndkVersion
 
@@ -190,7 +190,12 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-vector-icons')
+    if (useIntlJsc) {
+     implementation 'org.webkit:android-jsc-intl:+'
+    } else {
+        implementation 'org.webkit:android-jsc:+'
+    }
+    implementation project(':react-native-gesture-handler')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
