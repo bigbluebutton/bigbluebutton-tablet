@@ -9,5 +9,7 @@ export default {
     "mobileApp.portals.drawerNavigation.button.label": "Portals",
     "mobileApp.portals.addPortalPopup.validation.emptyFields": "Required Fields",
     "mobileApp.portals.addPortalPopup.validation.portalNameAlreadyExists": "Name already in use",
-    "mobileApp.portals.addPortalPopup.validation.urlInvalid": "Error trying to load the page - check URL and network connection"
+    "mobileApp.portals.addPortalPopup.validation.urlInvalid": "Error trying to load the page - check URL and network connection",
+    "mobileApp.portals.namePortal.deepLink": "Linked Portal",
+    "mobileApp.portals.handleWithoutURL": "Dont have link, you was redirected to list portals home.",
 }

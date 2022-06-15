@@ -35,6 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RCTBridgeDelegate {
 
     return true
   }
+  
+  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+      BigBlueButtonSDK.handleDeepLink(app, open: url, options: options)
+      return true
+  }
+  
+
 
   func sourceURL(for bridge: RCTBridge!) -> URL! {
 //#if DEBUG
