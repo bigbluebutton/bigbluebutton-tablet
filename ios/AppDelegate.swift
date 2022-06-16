@@ -41,7 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RCTBridgeDelegate {
       return true
   }
   
-
+  func applicationWillTerminate(_ application: UIApplication) {
+    BigBlueButtonSDK.onAppTerminated()
+  }
 
   func sourceURL(for bridge: RCTBridge!) -> URL! {
 //#if DEBUG
