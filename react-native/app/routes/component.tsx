@@ -51,8 +51,22 @@ const DeepLink = ()=>{
   }
 
   async function checkIfHaveTemporaryPortal(){
-    const portalsFromStorage = await AsyncStorage.getItem('portal')
-    const portalsParsed = JSON.parse(portalsFromStorage)
+    let portalsParsed: IPortal[]|null = null;
+    try {
+      let items = await AsyncStorage.getAllKeys();
+      if (items.includes('portal')) {
+        const portalsFromStorage = await AsyncStorage.getItem('portal')
+        portalsParsed = portalsFromStorage ?  JSON.parse(portalsFromStorage) : null
+      } else {
+        console.log('Error: Dont Have Portals Storage');
+      }
+    } catch (e) {
+      console.log('error', e);
+    }
+          
+    if(!portalsParsed){
+      return 
+    }
     const portalsWithoutTemporary = portalsParsed.filter((portal: IPortal)=>{
       if(portal.temporary == true) return false
       if(portal.name == NAME_PORTALS_DEEP_LINK) return false
