@@ -30,12 +30,18 @@ const DeepLink = ()=>{
       navigate.navigate(i18next.t('mobileApp.portals.drawerNavigation.button.label'))
       return Alert.alert(i18next.t('mobileApp.portals.handleWithoutURL'))
     }
-    const roomName = linkWithoutScheme.match(/^\w+/)
+    let roomNameWBar = linkWithoutScheme.match(/^[A-z-.\w]+\//)
+    if(!roomNameWBar) {
+      navigate.navigate(i18next.t('mobileApp.portals.drawerNavigation.button.label'))
+      return Alert.alert(i18next.t('mobileApp.portals.handleWithoutURL'))
+    }
+    let roomName = roomNameWBar[0].replace(/\//, '')
+
     if(roomName != 'bigbluebutton'){ 
-      NAME_PORTALS_DEEP_LINK = roomName[0]
+      NAME_PORTALS_DEEP_LINK = roomName
     }
 
-    const linkWhitoutSchemeAndName = linkWithoutScheme.replace(/^\w+[\/]/, '')
+    const linkWhitoutSchemeAndName = linkWithoutScheme.replace(/^[A-z-.\w]+\//, '')
     const portalToAdd:IPortal = {
       name: NAME_PORTALS_DEEP_LINK,
       url: SCHEME_DEFAULT+linkWhitoutSchemeAndName,
