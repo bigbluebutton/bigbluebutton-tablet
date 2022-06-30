@@ -40,11 +40,14 @@ const DeepLink = ()=>{
     if(roomName != 'bigbluebutton'){ 
       NAME_PORTALS_DEEP_LINK = roomName
     }
+    let linkWhitoutSchemeAndName = linkWithoutScheme.replace(/^[A-z-.\w]+\//, '')
 
-    const linkWhitoutSchemeAndName = linkWithoutScheme.replace(/^[A-z-.\w]+\//, '')
+    if (!linkWhitoutSchemeAndName.includes('://')) {
+      linkWhitoutSchemeAndName = SCHEME_DEFAULT + linkWhitoutSchemeAndName
+    }
     const portalToAdd:IPortal = {
       name: NAME_PORTALS_DEEP_LINK,
-      url: SCHEME_DEFAULT+linkWhitoutSchemeAndName,
+      url: linkWhitoutSchemeAndName,
       temporary: true
     }
 
