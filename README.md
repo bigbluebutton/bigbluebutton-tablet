@@ -1,8 +1,8 @@
-# BigBlueButton-mobile
+# BigBlueButton-mobile-tablet
 
-BigBlueButton mobile application.
+BigBlueButton mobile application for tablets - sample implementation.
 
-**Important:** This is an work in progress and is not ready to be used by the community. Please stay tunned.
+More details in https://github.com/bigbluebutton/bigbluebutton-mobile-tablet-sdk.
 
 ## Development
 
