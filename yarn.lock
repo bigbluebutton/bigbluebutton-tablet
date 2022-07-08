@@ -2204,10 +2204,10 @@ big-integer@1.6.x:
   resolved "https://registry.yarnpkg.com/big-integer/-/big-integer-1.6.51.tgz#0df92a5d9880560d3ff2d5fd20245c889d130686"
   integrity sha512-GPEid2Y9QU1Exl1rpO9B2IPJGHPSupF5GnVIP0blYvNOMer2bTvSWs1jGOUg04hTmu67nmLsQ9TBo1puaotBHg==
 
-bigbluebutton-mobile-sdk@^0.1.24:
-  version "0.1.24"
-  resolved "https://registry.yarnpkg.com/bigbluebutton-mobile-sdk/-/bigbluebutton-mobile-sdk-0.1.24.tgz#5a6101148ab3b837b20c04ab46458fd477e0c958"
-  integrity sha512-NgpQI1RhQEDNbH8VXNMbcra9E+7tew7vE8LRdXQ4rPpmnjLHFvaQHUiFh+YcJR6jW8XVeMXjawD/7iqovN+TNA==
+bigbluebutton-mobile-tablet-sdk@^0.1.25:
+  version "0.1.25"
+  resolved "https://registry.yarnpkg.com/bigbluebutton-mobile-tablet-sdk/-/bigbluebutton-mobile-tablet-sdk-0.1.25.tgz#5ff64d088eeb5f6380f1ab33a6d1ef18e1729014"
+  integrity sha512-kNwK8NWL/HzIcqMJVFOflpX935th3xyZEFNCv7810AAA5lgbcPR6T3GJ/lLHLkznLuP8wh6I1gAviPE/HXCaMw==
   dependencies:
     react-native-webview "^11.17.2"
 

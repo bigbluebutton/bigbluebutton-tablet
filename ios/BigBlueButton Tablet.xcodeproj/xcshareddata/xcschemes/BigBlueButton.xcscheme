@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "BigBlueButton.app"
-               BlueprintName = "BigBlueButton"
-               ReferencedContainer = "container:BigBlueButton.xcodeproj">
+               BlueprintName = "BigBlueButton Tablet"
+               ReferencedContainer = "container:BigBlueButton Tablet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "BigBlueButtonTests.xctest"
                BlueprintName = "BigBlueButtonTests"
-               ReferencedContainer = "container:BigBlueButton.xcodeproj">
+               ReferencedContainer = "container:BigBlueButton Tablet.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -58,8 +58,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "BigBlueButton.app"
-            BlueprintName = "BigBlueButton"
-            ReferencedContainer = "container:BigBlueButton.xcodeproj">
+            BlueprintName = "BigBlueButton Tablet"
+            ReferencedContainer = "container:BigBlueButton Tablet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -75,8 +75,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "BigBlueButton.app"
-            BlueprintName = "BigBlueButton"
-            ReferencedContainer = "container:BigBlueButton.xcodeproj">
+            BlueprintName = "BigBlueButton Tablet"
+            ReferencedContainer = "container:BigBlueButton Tablet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

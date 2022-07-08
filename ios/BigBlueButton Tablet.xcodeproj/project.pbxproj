@@ -16,7 +16,7 @@
 		F1CF7F4E27D1B63900E0C7F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CF7F4D27D1B63900E0C7F1 /* Constants.swift */; };
 		F1F618E927BCA28B0085BEDE /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F618E827BCA28B0085BEDE /* ReplayKit.framework */; };
 		F1F618EC27BCA28B0085BEDE /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F618EB27BCA28B0085BEDE /* SampleHandler.swift */; };
-		F1F618F027BCA28B0085BEDE /* BigBlueButton Broadcast.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F1F618E727BCA28B0085BEDE /* BigBlueButton Broadcast.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F1F618F027BCA28B0085BEDE /* BigBlueButton Tablet Broadcast.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F1F618E727BCA28B0085BEDE /* BigBlueButton Tablet Broadcast.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F1F618F027BCA28B0085BEDE /* BigBlueButton Broadcast.appex in Embed App Extensions */,
+				F1F618F027BCA28B0085BEDE /* BigBlueButton Tablet Broadcast.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,7 +46,7 @@
 /* Begin PBXFileReference section */
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* BigBlueButtonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BigBlueButtonTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* BigBlueButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigBlueButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* BigBlueButton Tablet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BigBlueButton Tablet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BigBlueButton/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BigBlueButton/Info.plist; sourceTree = "<group>"; };
 		1D0AE47A65C8663E3B452821 /* Pods-BigBlueButton-BigBlueButtonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigBlueButton-BigBlueButtonTests.release.xcconfig"; path = "Target Support Files/Pods-BigBlueButton-BigBlueButtonTests/Pods-BigBlueButton-BigBlueButtonTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		F1CF7F4D27D1B63900E0C7F1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = SOURCE_ROOT; };
 		F1CF7F4F27D1B7E800E0C7F1 /* BigBlueButton.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = BigBlueButton.entitlements; path = BigBlueButton/BigBlueButton.entitlements; sourceTree = "<group>"; };
 		F1CF7F5027D1B80200E0C7F1 /* BigBlueButton Broadcast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BigBlueButton Broadcast.entitlements"; sourceTree = "<group>"; };
-		F1F618E727BCA28B0085BEDE /* BigBlueButton Broadcast.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BigBlueButton Broadcast.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1F618E727BCA28B0085BEDE /* BigBlueButton Tablet Broadcast.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BigBlueButton Tablet Broadcast.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F618E827BCA28B0085BEDE /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		F1F618EB27BCA28B0085BEDE /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
 		F1F618ED27BCA28B0085BEDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -170,8 +170,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* BigBlueButton.app */,
-				F1F618E727BCA28B0085BEDE /* BigBlueButton Broadcast.appex */,
+				13B07F961A680F5B00A75B9A /* BigBlueButton Tablet.app */,
+				F1F618E727BCA28B0085BEDE /* BigBlueButton Tablet Broadcast.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,9 +203,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* BigBlueButton */ = {
+		13B07F861A680F5B00A75B9A /* BigBlueButton Tablet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BigBlueButton" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BigBlueButton Tablet" */;
 			buildPhases = (
 				3E482C27206C4DEF2FE45063 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -222,14 +222,14 @@
 			dependencies = (
 				F1F618EF27BCA28B0085BEDE /* PBXTargetDependency */,
 			);
-			name = BigBlueButton;
+			name = "BigBlueButton Tablet";
 			productName = BigBlueButton;
-			productReference = 13B07F961A680F5B00A75B9A /* BigBlueButton.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* BigBlueButton Tablet.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F1F618E627BCA28B0085BEDE /* BigBlueButton Broadcast */ = {
+		F1F618E627BCA28B0085BEDE /* BigBlueButton Tablet Broadcast */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1F618F127BCA28B0085BEDE /* Build configuration list for PBXNativeTarget "BigBlueButton Broadcast" */;
+			buildConfigurationList = F1F618F127BCA28B0085BEDE /* Build configuration list for PBXNativeTarget "BigBlueButton Tablet Broadcast" */;
 			buildPhases = (
 				796B413234ABE3905B9BBA35 /* [CP] Check Pods Manifest.lock */,
 				F1F618E327BCA28B0085BEDE /* Sources */,
@@ -240,9 +240,9 @@
 			);
 			dependencies = (
 			);
-			name = "BigBlueButton Broadcast";
+			name = "BigBlueButton Tablet Broadcast";
 			productName = "BigBlueButton Broadcast";
-			productReference = F1F618E727BCA28B0085BEDE /* BigBlueButton Broadcast.appex */;
+			productReference = F1F618E727BCA28B0085BEDE /* BigBlueButton Tablet Broadcast.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -262,7 +262,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BigBlueButton" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BigBlueButton Tablet" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -275,8 +275,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* BigBlueButton */,
-				F1F618E627BCA28B0085BEDE /* BigBlueButton Broadcast */,
+				13B07F861A680F5B00A75B9A /* BigBlueButton Tablet */,
+				F1F618E627BCA28B0085BEDE /* BigBlueButton Tablet Broadcast */,
 			);
 		};
 /* End PBXProject section */
@@ -438,7 +438,7 @@
 /* Begin PBXTargetDependency section */
 		F1F618EF27BCA28B0085BEDE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F1F618E627BCA28B0085BEDE /* BigBlueButton Broadcast */;
+			target = F1F618E627BCA28B0085BEDE /* BigBlueButton Tablet Broadcast */;
 			targetProxy = F1F618EE27BCA28B0085BEDE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -452,7 +452,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BigBlueButton/BigBlueButton.entitlements;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = N69T9W23TC;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BigBlueButton/Info.plist;
@@ -467,7 +467,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.bigbluebutton.mobile;
-				PRODUCT_NAME = BigBlueButton;
+				PRODUCT_NAME = "BigBlueButton Tablet";
 				SWIFT_OBJC_BRIDGING_HEADER = "swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -484,7 +484,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BigBlueButton/BigBlueButton.entitlements;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = N69T9W23TC;
 				INFOPLIST_FILE = BigBlueButton/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
@@ -498,7 +498,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.bigbluebutton.mobile;
-				PRODUCT_NAME = BigBlueButton;
+				PRODUCT_NAME = "BigBlueButton Tablet";
 				SWIFT_OBJC_BRIDGING_HEADER = "swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -642,13 +642,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "BigBlueButton Broadcast/BigBlueButton Broadcast.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = N69T9W23TC;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BigBlueButton Broadcast/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "BigBlueButton Broadcast";
+				INFOPLIST_KEY_CFBundleDisplayName = "BigBlueButton Tablet Broadcast";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
@@ -684,13 +684,13 @@
 				CODE_SIGN_ENTITLEMENTS = "BigBlueButton Broadcast/BigBlueButton Broadcast.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = N69T9W23TC;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BigBlueButton Broadcast/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "BigBlueButton Broadcast";
+				INFOPLIST_KEY_CFBundleDisplayName = "BigBlueButton Tablet Broadcast";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
@@ -715,7 +715,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BigBlueButton" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BigBlueButton Tablet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -724,7 +724,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BigBlueButton" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BigBlueButton Tablet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
@@ -733,7 +733,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1F618F127BCA28B0085BEDE /* Build configuration list for PBXNativeTarget "BigBlueButton Broadcast" */ = {
+		F1F618F127BCA28B0085BEDE /* Build configuration list for PBXNativeTarget "BigBlueButton Tablet Broadcast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1F618F227BCA28B0085BEDE /* Debug */,

@@ -1,4 +1,4 @@
-import {BigBlueButtonMobile} from 'bigbluebutton-mobile-sdk';
+import {BigBlueButtonMobile} from 'bigbluebutton-mobile-tablet-sdk';
 import React from 'react';
 import {StyleSheet, View, Platform} from 'react-native';
 import { SdkContainerDiv } from './styles';

@@ -15,7 +15,7 @@ import {usePortal} from '../../contexts/portals/hook';
 import {IStore} from './types';
 import {initTranslation} from '../../translations/index';
 import i18next from 'i18next';
-import {BigBlueButtonMobile} from 'bigbluebutton-mobile-sdk';
+import {BigBlueButtonMobile} from 'bigbluebutton-mobile-tablet-sdk';
 import {createNewPortal} from '../utils/createNewPortal';
 
 export const StorePortals = ({navigation, modalizeRef}: IStore) => {

@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:BigBlueButton.xcodeproj">
+      location = "group:/Users/tiago/_data/imdt/desenv-local/bbb2022/bigbluebutton-mobile-tablet/ios/BigBlueButton Tablet.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
