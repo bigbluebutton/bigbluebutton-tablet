@@ -23,8 +23,7 @@ import {IHandles} from 'react-native-modalize/lib/options';
 import {IItem, IItemDelete, IListPortalsDTO} from './types';
 import i18next from 'i18next';
 import {initTranslation} from '../../translations/index';
-import {TouchableOpacity} from 'react-native';
-import {createNewPortal} from '../utils/createNewPortal';
+import {createNewPortal} from '../../utils/createNewPortal';
 
 export const ListPortals = ({navigation}: IListPortalsDTO) => {
   initTranslation();
@@ -163,15 +162,16 @@ export const ListPortals = ({navigation}: IListPortalsDTO) => {
         <>
           <BlockTextWithoutPortal>
             <TextWithoutPortal>
-              {i18next.t('mobileApp.portals.list.empty.addFirstPortal.label')+' '}
-              <TextWithoutPortal onPress={() => onPressTextCreateDemoServer()} color={true}>
+              {i18next.t('mobileApp.portals.list.empty.addFirstPortal.label') +
+                ' '}
+              <TextWithoutPortal
+                onPress={() => onPressTextCreateDemoServer()}
+                color={true}>
                 {i18next.t(
                   'mobileApp.portals.list.empty.orUseOurDemoServer.label',
                 )}
               </TextWithoutPortal>
-
             </TextWithoutPortal>
-              
           </BlockTextWithoutPortal>
         </>
       )}

@@ -1,109 +1,120 @@
 import * as React from 'react';
-import { NavigationContainer, useNavigation} from '@react-navigation/native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {ListPortals} from '../pages/list_portals/component';
 import {usePortal} from '../contexts/portals/hook';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18next from 'i18next';
-
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import SdkContainer from '../../bootstrap/sdk/container';
+import SdkContainer from '../container-webview-sdk/container';
 import {initTranslation} from '../translations/index';
-import { Alert, Linking } from 'react-native';
-import { createNewPortal } from '../pages/utils/createNewPortal';
-import { emitter } from '../emitter/emitter';
-import { IPortal } from '../pages/utils/types';
+import {Alert, Linking} from 'react-native';
+import {createNewPortal} from '../utils/createNewPortal';
+import {IPortal} from '../utils/types';
 
-const DeepLink = ()=>{
+const DeepLink = () => {
   initTranslation();
 
   const SCHEME = 'bigbluebutton://';
-  const SCHEME_DEFAULT = 'https://'
-  var NAME_PORTALS_DEEP_LINK = i18next.t('mobileApp.portals.namePortal.deepLink');
+  const SCHEME_DEFAULT = 'https://';
+  var NAME_PORTALS_DEEP_LINK = i18next.t(
+    'mobileApp.portals.namePortal.deepLink',
+  );
 
   const navigate = useNavigation();
   const {portals, setPortals} = usePortal();
 
-  async function createTemporaryPortalFromDeepLink(link: string){
+  async function createTemporaryPortalFromDeepLink(link: string) {
     const linkWithoutScheme = link.replace(SCHEME, '');
 
-    if(linkWithoutScheme === ''){
-      navigate.navigate(i18next.t('mobileApp.portals.drawerNavigation.button.label'))
-      return Alert.alert(i18next.t('mobileApp.portals.handleWithoutURL'))
+    if (linkWithoutScheme === '') {
+      navigate.navigate(
+        i18next.t('mobileApp.portals.drawerNavigation.button.label'),
+      );
+      return Alert.alert(i18next.t('mobileApp.portals.handleWithoutURL'));
     }
-    let roomNameWBar = linkWithoutScheme.match(/^[A-z-.\w]+\//)
-    if(!roomNameWBar) {
-      navigate.navigate(i18next.t('mobileApp.portals.drawerNavigation.button.label'))
-      return Alert.alert(i18next.t('mobileApp.portals.handleWithoutURL'))
-    }
-    let roomName = roomNameWBar[0].replace(/\//, '')
 
-    if(roomName != 'bigbluebutton'){ 
-      NAME_PORTALS_DEEP_LINK = roomName
+    let roomNameWithBar = linkWithoutScheme.match(/^[A-z-.\w]+\//);
+    if (!roomNameWithBar) {
+      navigate.navigate(
+        i18next.t('mobileApp.portals.drawerNavigation.button.label'),
+      );
+      return Alert.alert(i18next.t('mobileApp.portals.handleWithoutURL'));
     }
-    let linkWhitoutSchemeAndName = linkWithoutScheme.replace(/^[A-z-.\w]+\//, '')
+    let roomName = roomNameWithBar[0].replace(/\//, '');
+
+    if (roomName != 'bigbluebutton') {
+      NAME_PORTALS_DEEP_LINK = roomName;
+    }
+    let linkWhitoutSchemeAndName = linkWithoutScheme.replace(
+      /^[A-z-.\w]+\//,
+      '',
+    );
 
     if (!linkWhitoutSchemeAndName.includes('://')) {
-      linkWhitoutSchemeAndName = SCHEME_DEFAULT + linkWhitoutSchemeAndName
+      linkWhitoutSchemeAndName = SCHEME_DEFAULT + linkWhitoutSchemeAndName;
     }
-    const portalToAdd:IPortal = {
+    const portalToAdd: IPortal = {
       name: NAME_PORTALS_DEEP_LINK,
       url: linkWhitoutSchemeAndName,
-      temporary: true
-    }
+      temporary: true,
+    };
 
     // Adding LinkedPortal to AsyncStorage
-    const newPortals = await createNewPortal(portalToAdd)
+    const newPortals = await createNewPortal(portalToAdd);
     // Adding to context
-    setPortals(newPortals)
+    setPortals(newPortals);
     // Navigation to portal
-    navigate.navigate(NAME_PORTALS_DEEP_LINK)
+    navigate.navigate(NAME_PORTALS_DEEP_LINK);
   }
 
-  async function checkIfHaveTemporaryPortal(){
-    let portalsParsed: IPortal[]|null = null;
+  async function checkIfHaveTemporaryPortal() {
+    let portalsParsed: IPortal[] | null = null;
     try {
       let items = await AsyncStorage.getAllKeys();
       if (items.includes('portal')) {
-        const portalsFromStorage = await AsyncStorage.getItem('portal')
-        portalsParsed = portalsFromStorage ?  JSON.parse(portalsFromStorage) : null
+        const portalsFromStorage = await AsyncStorage.getItem('portal');
+        portalsParsed = portalsFromStorage
+          ? JSON.parse(portalsFromStorage)
+          : null;
       } else {
         console.log('Error: Dont Have Portals Storage');
       }
     } catch (e) {
       console.log('error', e);
     }
-          
-    if(!portalsParsed){
-      return 
+
+    if (!portalsParsed) {
+      return;
     }
-    const portalsWithoutTemporary = portalsParsed.filter((portal: IPortal)=>{
-      if(portal.temporary == true) return false
-      if(portal.name == NAME_PORTALS_DEEP_LINK) return false
-      return portal
-    })
-    await AsyncStorage.setItem('portal', JSON.stringify(portalsWithoutTemporary))
-    setPortals(portalsWithoutTemporary)
+    const portalsWithoutTemporary = portalsParsed.filter((portal: IPortal) => {
+      if (portal.temporary == true) return false;
+      if (portal.name == NAME_PORTALS_DEEP_LINK) return false;
+      return portal;
+    });
+    await AsyncStorage.setItem(
+      'portal',
+      JSON.stringify(portalsWithoutTemporary),
+    );
+    setPortals(portalsWithoutTemporary);
 
-    getLinkFromAppClosed() //To app running in backgrond then open throug deep link
-    Linking.addEventListener('url', (url)=>{
+    getLinkFromAppClosed(); //To app running in backgrond then open throug deep link
+    Linking.addEventListener('url', url => {
       // if app is open when it's minimized (not running in background)
-      createTemporaryPortalFromDeepLink(url.url)
-    })
-
+      createTemporaryPortalFromDeepLink(url.url);
+    });
   }
 
-  async function getLinkFromAppClosed(){
-    const linkFromAppClosed = await Linking.getInitialURL()
-    if(linkFromAppClosed === null) return 
-    createTemporaryPortalFromDeepLink(linkFromAppClosed)
+  async function getLinkFromAppClosed() {
+    const linkFromAppClosed = await Linking.getInitialURL();
+    if (linkFromAppClosed === null) return;
+    createTemporaryPortalFromDeepLink(linkFromAppClosed);
   }
 
   React.useEffect(() => {
-    checkIfHaveTemporaryPortal()
-
+    checkIfHaveTemporaryPortal();
   }, []);
-  return null
-}
+  return null;
+};
 
 const Drawer = createDrawerNavigator();
 export const Routes = () => {
@@ -122,16 +133,18 @@ export const Routes = () => {
       return null;
     }
   }
-  
+
   React.useEffect(() => {
     getPortals();
   }, []);
 
   return (
     <NavigationContainer>
-      <DeepLink/>
+      <DeepLink />
       <Drawer.Navigator
-        initialRouteName={i18next.t('mobileApp.portals.drawerNavigation.button.label')}
+        initialRouteName={i18next.t(
+          'mobileApp.portals.drawerNavigation.button.label',
+        )}
         screenOptions={{
           headerShown: false,
         }}>
@@ -140,15 +153,17 @@ export const Routes = () => {
           component={ListPortals}
         />
         {portals && portals.length
-          ? portals.map((item: { name: React.Key | null | undefined; url: string; }) => {
-              return (
-                <Drawer.Screen
-                  key={item.name}
-                  name={item.name}
-                  children={() => <SdkContainer url={item.url} />}
-                />
-              );
-            })
+          ? portals.map(
+              (item: {name: React.Key | null | undefined; url: string}) => {
+                return (
+                  <Drawer.Screen
+                    key={item.name}
+                    name={item.name}
+                    children={() => <SdkContainer url={item.url} />}
+                  />
+                );
+              },
+            )
           : null}
       </Drawer.Navigator>
     </NavigationContainer>

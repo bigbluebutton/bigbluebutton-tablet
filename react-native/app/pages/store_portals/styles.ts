@@ -35,5 +35,5 @@ export const WrapperWebView = styled.View`
 `;
 
 export const TextTest = styled.Text`
-  color: ${colors.white}
-`
+  color: ${colors.white};
+`;

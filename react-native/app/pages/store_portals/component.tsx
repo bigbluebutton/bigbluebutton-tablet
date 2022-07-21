@@ -16,7 +16,7 @@ import {IStore} from './types';
 import {initTranslation} from '../../translations/index';
 import i18next from 'i18next';
 import {BigBlueButtonMobile} from 'bigbluebutton-mobile-tablet-sdk';
-import {createNewPortal} from '../utils/createNewPortal';
+import {createNewPortal} from '../../utils/createNewPortal';
 
 export const StorePortals = ({navigation, modalizeRef}: IStore) => {
   initTranslation();
@@ -35,6 +35,7 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
     const listPortals = await createNewPortal({
       name,
       url,
+      temporary: false,
     });
     setPortals(listPortals);
     modalizeRef?.current?.close();
