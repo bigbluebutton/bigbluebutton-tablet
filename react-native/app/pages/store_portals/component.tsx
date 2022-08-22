@@ -15,7 +15,7 @@ import {usePortal} from '../../contexts/portals/hook';
 import {IStore} from './types';
 import {initTranslation} from '../../translations/index';
 import i18next from 'i18next';
-import {BigBlueButtonMobile} from 'bigbluebutton-mobile-tablet-sdk';
+import {BigBlueButtonTablet} from 'bigbluebutton-tablet-sdk';
 import {createNewPortal} from '../utils/createNewPortal';
 
 export const StorePortals = ({navigation, modalizeRef}: IStore) => {
@@ -45,7 +45,9 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
     try {
       let portalsFilter = portals.filter(
         (portal: {name: string; url: string}) => {
-          if (portal.name != name) return false;
+          if (portal.name != name) {
+            return false;
+          }
           return portal;
         },
       );
@@ -66,7 +68,9 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
     setNameAlreadyUsed(false);
     setEmptyFields(false);
     setUrlInvalid(false);
-    if (!name || !url) return setEmptyFields(true);
+    if (!name || !url) {
+      return setEmptyFields(true);
+    }
     if (!url.includes('://')) {
       setUrl('https://' + url);
     }
@@ -94,29 +98,35 @@ export const StorePortals = ({navigation, modalizeRef}: IStore) => {
       ) : null}
     </>
   );
-  const onErrorLoadUrl = () => {
+  const onErrorLoadUrl = (content: any) => {
+    console.log('onErrorLoadUrl', content);
     setUrlInvalid(true);
     setLoadComponent(false);
   };
 
   const loadComponentOnValidateUrl = () => {
-    if (!loadComponent)
+    if (!loadComponent) {
       return (
         <ButtonApp onPress={onPress}>
           <Text>
-            {i18next.t('mobileApp.portals.addPortalPopup.confirm.button.label')}
+            {
+              i18next.t(
+                'mobileApp.portals.addPortalPopup.confirm.button.label',
+              ) as string
+            }
           </Text>
         </ButtonApp>
       );
+    }
 
     return (
       <View>
         <ActivityIndicator />
         <WrapperWebView>
-          <BigBlueButtonMobile
+          <BigBlueButtonTablet
             url={url}
             style={styles.bbb}
-            onError={(content: any) => onErrorLoadUrl()}
+            onError={(content: any) => onErrorLoadUrl(content)}
             onSuccess={() => validateAndCreateNewPortal()}
           />
         </WrapperWebView>

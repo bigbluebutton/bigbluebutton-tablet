@@ -2,33 +2,61 @@ require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 platform :ios, '14.7'
+install! 'cocoapods', :deterministic_uuids => false
+
+production = ENV["PRODUCTION"] == "1"
 
 target 'BigBlueButton Broadcast' do
-  pod 'bigbluebutton-mobile-sdk-common', :path => '../node_modules/bigbluebutton-mobile-tablet-sdk/ios-common'
-  pod 'bigbluebutton-mobile-sdk-broadcast-upload-extension', :path => '../node_modules/bigbluebutton-mobile-tablet-sdk/ios-broadcast-upload-extension'
+  pod 'bigbluebutton-tablet-sdk-common', :path => '../node_modules/bigbluebutton-tablet-sdk/ios-common'
+  pod 'bigbluebutton-tablet-sdk-broadcast-upload-extension', :path => '../node_modules/bigbluebutton-tablet-sdk/ios-broadcast-upload-extension'
 end
 
-target 'BigBlueButton' do
-  pod 'bigbluebutton-mobile-sdk-common', :path => '../node_modules/bigbluebutton-mobile-tablet-sdk/ios-common'
+target 'BigBlueButton TabletTests' do
+  inherit! :complete
+  # Pods for testing
+end
+
+target 'BigBlueButton Tablet' do
+  pod 'bigbluebutton-tablet-sdk-common', :path => '../node_modules/bigbluebutton-tablet-sdk/ios-common'
   config = use_native_modules!
+
+  # Flags change depending on the env values.
+  flags = get_default_flags()
 
   use_react_native!(
     :path => config[:reactNativePath],
     # to enable hermes on iOS, change `false` to `true` and then install pods
-    :hermes_enabled => false
+    :production => production,
+    :hermes_enabled => flags[:hermes_enabled],
+    :fabric_enabled => flags[:fabric_enabled],
+    :flipper_configuration => FlipperConfiguration.enabled,
+    # An absolute path to your application root.
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-
-
-
-
-  # Enables Flipper.
-  #
-  # Note that if you have use_frameworks! enabled, Flipper will not work and
-  # you should disable the next line.
-  #use_flipper!()
 
   post_install do |installer|
     react_native_post_install(installer)
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
+    # https://github.com/CocoaPods/CocoaPods/issues/11402#issuecomment-1188774894
+        # Get main project development team id
+        dev_team = ""
+        project = installer.aggregate_targets[0].user_project
+        project.targets.each do |target|
+            target.build_configurations.each do |config|
+                if dev_team.empty? and !config.build_settings['DEVELOPMENT_TEAM'].nil?
+                    dev_team = config.build_settings['DEVELOPMENT_TEAM']
+                end
+            end
+        end
+
+        # Fix bundle targets' 'Signing Certificate' to 'Sign to Run Locally'
+        installer.pods_project.targets.each do |target|
+            if target.respond_to?(:product_type) and target.product_type == "com.apple.product-type.bundle"
+                target.build_configurations.each do |config|
+                    config.build_settings['DEVELOPMENT_TEAM'] = dev_team
+                end
+            end
+        end
+    #end of https://github.com/CocoaPods/CocoaPods/issues/11402#issuecomment-1188774894
   end
 end
