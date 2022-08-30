@@ -58,5 +58,13 @@ target 'BigBlueButton Tablet' do
             end
         end
     #end of https://github.com/CocoaPods/CocoaPods/issues/11402#issuecomment-1188774894
+
+    # https://stackoverflow.com/a/32685434
+      installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+          config.build_settings['ENABLE_BITCODE'] = 'NO'
+        end
+      end  
+    # end of https://stackoverflow.com/a/32685434
   end
 end

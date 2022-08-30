@@ -635,6 +635,7 @@
 				CODE_SIGN_ENTITLEMENTS = "BigBlueButton Tablet.entitlements";
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = N69T9W23TC;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BigBlueButtonTablet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "BigBlueButton Tablet";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
@@ -677,6 +678,7 @@
 				DEVELOPMENT_TEAM = N69T9W23TC;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "BigBlueButton Broadcast/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "BigBlueButton Broadcast";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -718,6 +720,7 @@
 				DEVELOPMENT_TEAM = N69T9W23TC;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "BigBlueButton Broadcast/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "BigBlueButton Broadcast";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
