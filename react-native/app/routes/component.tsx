@@ -16,7 +16,7 @@ import { IPortal } from '../pages/utils/types';
 const DeepLink = ()=>{
   initTranslation();
 
-  const SCHEME = 'bigbluebutton://';
+  const SCHEME = 'bigbluebutton-tablet://';
   const SCHEME_DEFAULT = 'https://'
   var NAME_PORTALS_DEEP_LINK = i18next.t('mobileApp.portals.namePortal.deepLink');
 
