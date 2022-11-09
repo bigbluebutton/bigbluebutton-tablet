@@ -6,4 +6,4 @@ PS: This runs on mobile too, but it's mainly targeted for tablets, as it require
 
 More details in https://github.com/bigbluebutton/bigbluebutton-tablet-sdk
 
-You can install the beta version for IOS using [this link](https://testflight.apple.com/join/7k0KWvF6).
+- iOS version available in [App Store](https://apps.apple.com/us/app/bigbluebutton-tablet/id1641156756)
