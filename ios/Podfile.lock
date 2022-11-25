@@ -1,11 +1,11 @@
 PODS:
-  - bigbluebutton-tablet-sdk (0.1.31):
+  - bigbluebutton-tablet-sdk (0.1.35):
     - bigbluebutton-tablet-sdk-common
     - React-Core
-  - bigbluebutton-tablet-sdk-broadcast-upload-extension (0.1.31):
+  - bigbluebutton-tablet-sdk-broadcast-upload-extension (0.1.35):
     - bigbluebutton-tablet-sdk-common
     - WebRTC-lib
-  - bigbluebutton-tablet-sdk-common (0.1.31):
+  - bigbluebutton-tablet-sdk-common (0.1.35):
     - WebRTC-lib
   - boost (1.76.0)
   - CocoaAsyncSocket (7.6.5)
@@ -587,9 +587,9 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  bigbluebutton-tablet-sdk: 876a9db0f2eecd59db088a7782b4ce74f9ac0729
-  bigbluebutton-tablet-sdk-broadcast-upload-extension: 59275130401eb4df22b1efa291e0a55ce4e3a7b9
-  bigbluebutton-tablet-sdk-common: 63b9fb358196a5156c3696c57aa09596e8b774a6
+  bigbluebutton-tablet-sdk: e48e7ea85581182a53cb568ae4da4a5003d406ce
+  bigbluebutton-tablet-sdk-broadcast-upload-extension: fd51015a4d172b44a3e4ccdd1ae22bf809660f30
+  bigbluebutton-tablet-sdk-common: 2e0b7452ca5e92722ee603601de9c2f4c9139e2b
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
