@@ -1,0 +1,15 @@
+export default {
+    "mobileApp.portals.list.empty.addFirstPortal.label": "اولین پورتال خود را با استفاده از دکمه بالا اضافه کنید،",
+    "mobileApp.portals.list.empty.orUseOurDemoServer.label": "یا از سرور نمایشی ما استفاده کنید.",
+    "mobileApp.portals.list.add.button.label": "افزودن پورتال",
+    "mobileApp.portals.fields.name.label": "نام پورتال",
+    "mobileApp.portals.fields.name.placeholder": "نسخه‌ی نمایشی BigBlueButton",
+    "mobileApp.portals.fields.url.label": "نشانی اینترنتی سرور",
+    "mobileApp.portals.addPortalPopup.confirm.button.label": "ذخیره",
+    "mobileApp.portals.drawerNavigation.button.label": "پورتال‌ها",
+    "mobileApp.portals.addPortalPopup.validation.emptyFields": "زمینه‌های مورد نیاز",
+    "mobileApp.portals.addPortalPopup.validation.portalNameAlreadyExists": "نام در حال حاضر استفاده شده است",
+    "mobileApp.portals.addPortalPopup.validation.urlInvalid": "خطا در تلاش برای بارگذاری صفحه - نشانی اینترنتی و اتصال به اینترنت خود را بررسی کنید",
+    "mobileApp.portals.namePortal.deepLink": "پورتال پیونده شده",
+    "mobileApp.portals.handleWithoutURL": "پیوندی وجود ندارد، شما به فهرست پورتال‌ها در صفحه اصلی هدایت شدید.",
+}
