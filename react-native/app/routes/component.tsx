@@ -18,91 +18,106 @@ const DeepLink = ()=>{
 
   const SCHEME = 'bigbluebutton-tablet://';
   const SCHEME_DEFAULT = 'https://'
-  var NAME_PORTALS_DEEP_LINK = i18next.t('mobileApp.portals.namePortal.deepLink');
+  var lastDeepLinkPortalName = null;
 
-  const navigate = useNavigation();
+  const navigation = useNavigation();
   const {portals, setPortals} = usePortal();
 
-  async function createTemporaryPortalFromDeepLink(link: string){
-    const linkWithoutScheme = link.replace(SCHEME, '');
+  async function createPortalFromDeepLink(link: string){
+    const linkWithoutScheme = link.replace(SCHEME, '').replace(/\+/g, ' ');
 
     if(linkWithoutScheme === ''){
-      navigate.navigate(i18next.t('mobileApp.portals.drawerNavigation.button.label'))
+      navigation.navigate(i18next.t('mobileApp.portals.drawerNavigation.button.label'))
       return Alert.alert(i18next.t('mobileApp.portals.handleWithoutURL'))
     }
-    let roomNameWBar = linkWithoutScheme.match(/^[A-z-.\w]+\//)
+    let roomNameWBar = linkWithoutScheme.match(/^[-.\w +]+\//)
     if(!roomNameWBar) {
-      navigate.navigate(i18next.t('mobileApp.portals.drawerNavigation.button.label'))
+      navigation.navigate(i18next.t('mobileApp.portals.drawerNavigation.button.label'))
       return Alert.alert(i18next.t('mobileApp.portals.handleWithoutURL'))
     }
     let roomName = roomNameWBar[0].replace(/\//, '')
 
-    if(roomName != 'bigbluebutton'){ 
-      NAME_PORTALS_DEEP_LINK = roomName
+    if(roomName === 'bigbluebutton'){ 
+      roomName = i18next.t('mobileApp.portals.namePortal.deepLink');
     }
-    let linkWhitoutSchemeAndName = linkWithoutScheme.replace(/^[A-z-.\w]+\//, '')
+    lastDeepLinkPortalName = roomName;
 
-    if (!linkWhitoutSchemeAndName.includes('://')) {
-      linkWhitoutSchemeAndName = SCHEME_DEFAULT + linkWhitoutSchemeAndName
+    let linkWithoutSchemeAndName = linkWithoutScheme.replace(/^[-.\w +]+\//, '')
+
+    if (!linkWithoutSchemeAndName.includes('://')) {
+      linkWithoutSchemeAndName = SCHEME_DEFAULT + linkWithoutSchemeAndName
     }
+
+    // Join links are temporary (discarded on next app launch)
+    const isTemporary = linkWithoutScheme.includes('/bigbluebutton/api/join?');
+
     const portalToAdd:IPortal = {
-      name: NAME_PORTALS_DEEP_LINK,
-      url: linkWhitoutSchemeAndName,
-      temporary: true
+      name: lastDeepLinkPortalName,
+      url: linkWithoutSchemeAndName,
+      temporary: isTemporary
     }
 
     // Adding LinkedPortal to AsyncStorage
     const newPortals = await createNewPortal(portalToAdd)
+    
     // Adding to context
     setPortals(newPortals)
-    // Navigation to portal
-    navigate.navigate(NAME_PORTALS_DEEP_LINK)
+
+    // Navigate to it
+    navigation.navigate(lastDeepLinkPortalName);
   }
 
   async function checkIfHaveTemporaryPortal(){
     let portalsParsed: IPortal[]|null = null;
     try {
       let items = await AsyncStorage.getAllKeys();
-      if (items.includes('portal')) {
-        const portalsFromStorage = await AsyncStorage.getItem('portal')
-        portalsParsed = portalsFromStorage ?  JSON.parse(portalsFromStorage) : null
-      } else {
-        console.log('Error: Dont Have Portals Storage');
+
+      // If portal storage is empty, initialize it
+      if(!items.includes('portal')) {
+        await AsyncStorage.setItem('portal', JSON.stringify([]));
       }
+      
+      const portalsFromStorage = await AsyncStorage.getItem('portal')
+      portalsParsed = portalsFromStorage ?  JSON.parse(portalsFromStorage) : null
     } catch (e) {
       console.log('error', e);
     }
           
     if(!portalsParsed){
-      return 
+      console.error("Invalid portal storage: ", portalsParsed);
+      return;
     }
-    const portalsWithoutTemporary = portalsParsed.filter((portal: IPortal)=>{
-      if(portal.temporary == true) return false
-      if(portal.name == NAME_PORTALS_DEEP_LINK) return false
-      return portal
-    })
-    await AsyncStorage.setItem('portal', JSON.stringify(portalsWithoutTemporary))
-    setPortals(portalsWithoutTemporary)
 
-    getLinkFromAppClosed() //To app running in backgrond then open throug deep link
+    // Clear temporary portals from previous executions
+    const portalsWithoutTemporary = portalsParsed.filter((portal: IPortal)=>{
+      if(portal.temporary == true) return false;
+      if(portal.name == lastDeepLinkPortalName) return false;
+      return portal;
+    });
+    await AsyncStorage.setItem('portal', JSON.stringify(portalsWithoutTemporary));
+    setPortals(portalsWithoutTemporary);
+
+    // Handle app launch with link
+    getLinkFromAppLaunch();
+
+    // Handle link when app is running
     Linking.addEventListener('url', (url)=>{
-      // if app is open when it's minimized (not running in background)
-      createTemporaryPortalFromDeepLink(url.url)
-    })
+      createPortalFromDeepLink(url.url);
+    });
 
   }
 
-  async function getLinkFromAppClosed(){
-    const linkFromAppClosed = await Linking.getInitialURL()
-    if(linkFromAppClosed === null) return 
-    createTemporaryPortalFromDeepLink(linkFromAppClosed)
+  async function getLinkFromAppLaunch(){
+    const linkFromAppClosed = await Linking.getInitialURL();
+    if(linkFromAppClosed === null) return;
+    createPortalFromDeepLink(linkFromAppClosed);
   }
 
   React.useEffect(() => {
-    checkIfHaveTemporaryPortal()
-
+    checkIfHaveTemporaryPortal();
   }, []);
-  return null
+
+  return null;
 }
 
 const Drawer = createDrawerNavigator();

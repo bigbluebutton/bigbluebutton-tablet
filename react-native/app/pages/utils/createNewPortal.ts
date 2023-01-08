@@ -42,7 +42,23 @@ async function addPortalToStorage({
   url,
   temporary
 }: IPortalToAdd): Promise<IPortal[]> {
+  // Copy current elements
+  const copyOfPortals = [...portals];
+
+  // Remove elements without changing reference
+  portals.length=0;
+
+  // Add all but those with same name of the new
+  copyOfPortals.forEach((portal: IPortal)=>{
+    if(portal.name == name) return;
+    portals.push(portal);
+  })
+
+  // Add the new portal
   portals.push({name, url, temporary});
+
+  // Store new list
   await AsyncStorage.setItem('portal', JSON.stringify(portals));
+  
   return portals;
 }
