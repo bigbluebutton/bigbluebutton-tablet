@@ -45,6 +45,7 @@ const DeepLink = ()=>{
 
     portalName=decodeUrlParameter(portalName);
     portalLink= 'https://' + decodeUrlParameter(portalLink);
+    portalLink=portalLink.replace(/%20/g, '+');
 
     // Join links are temporary (discarded on next app launch)
     const isTemporary = portalLink.includes('/bigbluebutton/api/join?');
