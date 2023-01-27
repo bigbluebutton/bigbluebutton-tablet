@@ -82,6 +82,14 @@ export const TextWithoutPortal = styled.Text`
   display: flex;
 `;
 
+export const TextVersionInfo = styled.Text`
+  margin-top: 100px;
+  color: #555;
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+`;
+
 export const BlockTextWithoutPortal = styled.View`
     flex-direction: row;
     padding: 20px;

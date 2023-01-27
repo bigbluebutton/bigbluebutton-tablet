@@ -9,6 +9,7 @@ import {
   ItemList,
   TextButtonOpen,
   TextWithoutPortal,
+  TextVersionInfo,
   WrapperItemListText,
   WrapperListContainer,
   WrapperViewAdd,
@@ -25,8 +26,13 @@ import i18next from 'i18next';
 import {initTranslation} from '../../translations/index';
 import {TouchableOpacity} from 'react-native';
 import {createNewPortal} from '../utils/createNewPortal';
+import DeviceInfo from 'react-native-device-info';
 
 export const ListPortals = ({navigation}: IListPortalsDTO) => {
+  const version = DeviceInfo.getVersion();
+  const buildNum = DeviceInfo.getBuildNumber();
+  const versionString = `${version} (#${buildNum})`;
+
   initTranslation();
   const icon = (
     <FontAwesome5 color={colors.white} solid size={18} name={'plus'} />
@@ -175,6 +181,7 @@ export const ListPortals = ({navigation}: IListPortalsDTO) => {
           </BlockTextWithoutPortal>
         </>
       )}
+      <TextVersionInfo>V{versionString}</TextVersionInfo>
     </WrapperListContainer>
   );
 };

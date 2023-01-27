@@ -8,7 +8,7 @@ import i18next from 'i18next';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import SdkContainer from '../../bootstrap/sdk/container';
 import {initTranslation} from '../translations/index';
-import { Alert, Linking } from 'react-native';
+import { Alert, Linking, Text } from 'react-native';
 import { createNewPortal } from '../pages/utils/createNewPortal';
 import { emitter } from '../emitter/emitter';
 import { IPortal } from '../pages/utils/types';
@@ -34,7 +34,11 @@ const DeepLink = ()=>{
       return Alert.alert(i18next.t('mobileApp.portals.handleWithoutURL'))
     }
 
-    const linkParts = linkWithoutScheme.split('/https://');
+    // 
+
+
+    let linkParts = linkWithoutScheme.split('/' + encodeURIComponent("https://"));
+
     let portalName = linkParts[0];
     let portalLink = linkParts[1];
 
@@ -144,29 +148,31 @@ export const Routes = () => {
   }, []);
 
   return (
-    <NavigationContainer>
-      <DeepLink/>
-      <Drawer.Navigator
-        initialRouteName={i18next.t('mobileApp.portals.drawerNavigation.button.label')}
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Drawer.Screen
-          name={i18next.t('mobileApp.portals.drawerNavigation.button.label')}
-          component={ListPortals}
-        />
-        {portals && portals.length
-          ? portals.map((item: { name: React.Key | null | undefined; url: string; }) => {
-              return (
-                <Drawer.Screen
-                  key={item.name}
-                  name={item.name}
-                  children={() => <SdkContainer url={item.url} />}
-                />
-              );
-            })
-          : null}
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <>
+      <NavigationContainer>
+        <DeepLink/>
+        <Drawer.Navigator
+          initialRouteName={i18next.t('mobileApp.portals.drawerNavigation.button.label')}
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Drawer.Screen
+            name={i18next.t('mobileApp.portals.drawerNavigation.button.label')}
+            component={ListPortals}
+          />
+          {portals && portals.length
+            ? portals.map((item: { name: React.Key | null | undefined; url: string; }) => {
+                return (
+                  <Drawer.Screen
+                    key={item.name}
+                    name={item.name}
+                    children={() => <SdkContainer url={item.url} />}
+                  />
+                );
+              })
+            : null}
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </>
   );
 };
