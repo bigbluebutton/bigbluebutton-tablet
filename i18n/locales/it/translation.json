@@ -1,0 +1,11 @@
+{
+"home": {
+"title": "BigBlueButton",
+"subtitle": "Join meetings with extra features—like screen sharing",
+"description": "È possibile partecipare direttamente a una riunione oppure trasferirne una da un altro dispositivo scansionando un codice QR.",
+"inputLabel": "Incolla il link della riunione qui sotto",
+"inputPlaceholder": "ad esempio https://url-della-tua-riunione",
+"joinButton": "Partecipa alla riunione",
+"screenShareButton": "Avvia condivisione schermo"
+}
+}
