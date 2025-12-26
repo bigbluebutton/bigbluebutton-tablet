@@ -2,7 +2,6 @@
   "home": {
     "title": "BigBlueButton",
     "subtitle": "Participe de reuniões com recursos extras—como compartilhamento de tela",
-    "description": "Você pode entrar em uma reunião diretamente ou transferi-la de outro dispositivo escaneando um QR code.",
     "inputLabel": "Cole o link da reunião abaixo:",
     "inputPlaceholder": "ex: https://seu-link-de-reuniao",
     "joinButton": "Entrar na Reunião",

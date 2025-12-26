@@ -2,7 +2,6 @@
   "home": {
     "title": "BigBlueButton",
     "subtitle": "Nehmen Sie an Meetings mit zusätzlichen Funktionen teil – wie Bildschirmfreigabe",
-    "description": "Sie können direkt an einem Meeting teilnehmen oder eines von einem anderen Gerät per QR-Code übertragen.",
     "inputLabel": "Fügen Sie unten Ihren Meeting-Link ein:",
     "inputPlaceholder": "z.B. https://ihr-meeting-link",
     "joinButton": "Meeting beitreten",

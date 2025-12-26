@@ -2,7 +2,6 @@
   "home": {
     "title": "BigBlueButton",
     "subtitle": "Join meetings with extra features—like screen sharing",
-    "description": "You can join a meeting directly, or transfer one from another device by scanning a QR code.",
     "inputLabel": "Paste your meeting link below:",
     "inputPlaceholder": "e.g. https://your-meeting-url",
     "joinButton": "Join Meeting",

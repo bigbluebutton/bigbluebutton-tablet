@@ -137,9 +137,6 @@ export default function RootLayout() {
             <ThemedText type="subtitle" style={styles.subtitle}>
               {t('home.subtitle')}
             </ThemedText>
-            <ThemedText style={styles.description}>
-              {t('home.description')}
-            </ThemedText>
 
             <View style={styles.card}>
               <ThemedText style={styles.inputLabel}>{t('home.inputLabel')}</ThemedText>
@@ -195,13 +192,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   subtitle: {
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  description: {
     marginBottom: 24,
     textAlign: 'center',
-    color: '#687076',
   },
   card: {
     width: '100%',
