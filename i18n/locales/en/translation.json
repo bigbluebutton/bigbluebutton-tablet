@@ -2,7 +2,8 @@
   "home": {
     "title": "BigBlueButton",
     "subtitle": "Join meetings with extra features—like screen sharing",
-    "inputLabel": "Paste your meeting link below:",
+    "inputLabel": "Paste your meeting link below, or use our",
+    "demoLink": "demo server",
     "inputPlaceholder": "e.g. https://your-meeting-url",
     "joinButton": "Join Meeting",
     "screenShareButton": "Start Screen Share"

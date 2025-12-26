@@ -2,7 +2,8 @@
   "home": {
     "title": "BigBlueButton",
     "subtitle": "Participe de reuniões com recursos extras—como compartilhamento de tela",
-    "inputLabel": "Cole o link da reunião abaixo:",
+    "inputLabel": "Cole o link da reunião abaixo, ou use nosso",
+    "demoLink": "servidor de demonstração",
     "inputPlaceholder": "ex: https://seu-link-de-reuniao",
     "joinButton": "Entrar na Reunião",
     "screenShareButton": "Iniciar Compartilhamento de Tela"

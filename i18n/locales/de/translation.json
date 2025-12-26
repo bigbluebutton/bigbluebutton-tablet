@@ -2,7 +2,8 @@
   "home": {
     "title": "BigBlueButton",
     "subtitle": "Nehmen Sie an Meetings mit zusätzlichen Funktionen teil – wie Bildschirmfreigabe",
-    "inputLabel": "Fügen Sie unten Ihren Meeting-Link ein:",
+    "inputLabel": "Fügen Sie unten Ihren Meeting-Link ein, oder verwenden Sie unseren",
+    "demoLink": "Demoserver",
     "inputPlaceholder": "z.B. https://ihr-meeting-link",
     "joinButton": "Meeting beitreten",
     "screenShareButton": "Bildschirmübertragung starten"

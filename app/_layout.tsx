@@ -21,7 +21,7 @@ export default function RootLayout() {
   const { t, i18n } = useTranslation();
   const [selectedLanguage, setSelectedLanguage] = React.useState(i18n.language);
   const [showMeeting, setShowMeeting] = React.useState(false);
-  const [meetingUrl, setMeetingUrl] = React.useState('https://demo-ios.bigbluebutton.org');
+  const [meetingUrl, setMeetingUrl] = React.useState('');
 
   const handleLanguageChange = (lang: string) => {
     setSelectedLanguage(lang);
@@ -139,10 +139,22 @@ export default function RootLayout() {
             </ThemedText>
 
             <View style={styles.card}>
-              <ThemedText style={styles.inputLabel}>{t('home.inputLabel')}</ThemedText>
+              <View style={styles.inputLabelContainer}>
+                <ThemedText style={styles.inputLabel}>
+                  {t('home.inputLabel')}{' '}
+                  <ThemedText
+                    style={styles.demoLink}
+                    onPress={() => {
+                      setMeetingUrl('https://demo-ios.bigbluebutton.org');
+                      setShowMeeting(true);
+                    }}
+                  >
+                    {t('home.demoLink')}
+                  </ThemedText>
+                </ThemedText>
+              </View>
               <TextInput
                 placeholder={t('home.inputPlaceholder')}
-                autoFocus={true}
                 style={styles.input}
                 placeholderTextColor="#888"
                 value={meetingUrl}
@@ -207,9 +219,16 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     elevation: 2,
   },
-  inputLabel: {
+  inputLabelContainer: {
     marginBottom: 8,
+  },
+  inputLabel: {
     fontWeight: '600',
+  },
+  demoLink: {
+    color: '#0a7ea4',
+    fontWeight: '600',
+    textDecorationLine: 'underline',
   },
   input: {
     height: 44,
