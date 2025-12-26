@@ -10,7 +10,7 @@ import * as Linking from 'expo-linking';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { Button, KeyboardAvoidingView, Platform, StyleSheet, TextInput, View } from 'react-native';
+import { Button, Keyboard, KeyboardAvoidingView, Platform, StyleSheet, TextInput, TouchableWithoutFeedback, View } from 'react-native';
 import MeetingWebView from './MeetingWebView';
 
 export default function RootLayout() {
@@ -125,53 +125,55 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <ThemedView style={styles.container}>
-        <KeyboardAvoidingView
-          style={styles.inner}
-          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        >
-          <ThemedText type="title" style={styles.title}>
-            {t('home.title')}
-          </ThemedText>
-          <ThemedText type="subtitle" style={styles.subtitle}>
-            {t('home.subtitle')}
-          </ThemedText>
-          <ThemedText style={styles.description}>
-            {t('home.description')}
-          </ThemedText>
-
-          <View style={styles.card}>
-            <ThemedText style={styles.inputLabel}>{t('home.inputLabel')}</ThemedText>
-            <TextInput
-              placeholder={t('home.inputPlaceholder')}
-              autoFocus={true}
-              style={styles.input}
-              placeholderTextColor="#888"
-              value={meetingUrl}
-              onChangeText={setMeetingUrl}
-              onSubmitEditing={() => setShowMeeting(true)}
-            />
-            <Button title={t('home.joinButton')} onPress={() => setShowMeeting(true)} color="#0a7ea4" />
-          </View>
-
-          <View style={styles.spacer} />
-
-          {/* Language Picker */}
-          {/* Removed from here */}
-        </KeyboardAvoidingView>
-        {/* Language Picker moved here for bottom-left alignment */}
-        <View style={styles.languagePickerContainer}>
-          <Picker
-            selectedValue={selectedLanguage}
-            onValueChange={handleLanguageChange}
-            style={{ color: '#000', fontSize: 16 }}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <ThemedView style={styles.container}>
+          <KeyboardAvoidingView
+            style={styles.inner}
+            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
           >
-            <Picker.Item label="English" value="en" />
-            <Picker.Item label="Deutsch" value="de" />
-            <Picker.Item label="Português (Brasil)" value="pt-BR" />
-          </Picker>
-        </View>
-      </ThemedView>
+            <ThemedText type="title" style={styles.title}>
+              {t('home.title')}
+            </ThemedText>
+            <ThemedText type="subtitle" style={styles.subtitle}>
+              {t('home.subtitle')}
+            </ThemedText>
+            <ThemedText style={styles.description}>
+              {t('home.description')}
+            </ThemedText>
+
+            <View style={styles.card}>
+              <ThemedText style={styles.inputLabel}>{t('home.inputLabel')}</ThemedText>
+              <TextInput
+                placeholder={t('home.inputPlaceholder')}
+                autoFocus={true}
+                style={styles.input}
+                placeholderTextColor="#888"
+                value={meetingUrl}
+                onChangeText={setMeetingUrl}
+                onSubmitEditing={() => setShowMeeting(true)}
+              />
+              <Button title={t('home.joinButton')} onPress={() => setShowMeeting(true)} color="#0a7ea4" />
+            </View>
+
+            <View style={styles.spacer} />
+
+            {/* Language Picker */}
+            {/* Removed from here */}
+          </KeyboardAvoidingView>
+          {/* Language Picker moved here for bottom-left alignment */}
+          <View style={styles.languagePickerContainer}>
+            <Picker
+              selectedValue={selectedLanguage}
+              onValueChange={handleLanguageChange}
+              style={{ color: '#000', fontSize: 16 }}
+            >
+              <Picker.Item label="English" value="en" />
+              <Picker.Item label="Deutsch" value="de" />
+              <Picker.Item label="Português (Brasil)" value="pt-BR" />
+            </Picker>
+          </View>
+        </ThemedView>
+      </TouchableWithoutFeedback>
     </ThemeProvider>
   );
 }
